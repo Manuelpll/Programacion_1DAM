@@ -3,6 +3,7 @@ package Tema_3;
 /**
  * Ordenamos los numeros de un array con el metodo bubble de forma ascendente
  */
+import java.util.Arrays;
 public class Tema3b_Ordenar_arrays {
     //Creamos un metodo que nos permite ordenar por orden los numeros de un array descendiente
     public static int[] bubblesortdes(int [] numbers){
@@ -66,7 +67,7 @@ public static int[] bubbleSort2(int[] numbers){
         int[] array2 ={10,1,5,40,12,34,44,12,11,9};
         int longitud=array.length;
         int longitud2=array2.length;
-        bubblesortdes(array);
+        Arrays.sort(array);
         imprimirArrayUni(array,longitud);
         System.out.println("version mejorada");
         bubbleSort2(array2);
