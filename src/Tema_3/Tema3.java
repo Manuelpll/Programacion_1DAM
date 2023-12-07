@@ -1,7 +1,7 @@
 package Tema_3;
 
 /**
- * Revisar si ha aprovado o no
+ * Revisar si has aprovado o no
  * Manuel
  */
 import java.util.Scanner;

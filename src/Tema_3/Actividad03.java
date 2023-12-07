@@ -1,4 +1,9 @@
 package Tema_3;
+/*
+ * Es un programa que te dice si las dos letras insertadas consecutivamente si estan ordenadas alfabeticamente o no
+ * @autor Manuel
+ */
+
 import java.util.Scanner;
 public class Actividad03 {
     public static void alfabeto (char num1,char num2){

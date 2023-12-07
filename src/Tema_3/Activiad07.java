@@ -1,6 +1,8 @@
 package Tema_3;
+/**
+ * Es un programa que te pide las notas de tres alumnos ,te dice los alumnos aprovados y suspensos;despues te dice la nota más alta
+ */
 import java.util.Scanner;
-
 public class Activiad07 {
 
 	public static int redondearNota(double nota) {

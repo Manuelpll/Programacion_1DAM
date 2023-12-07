@@ -1,4 +1,7 @@
 package Tema_3;
+/*
+Es un programa que te lee lo que has puesto sin utilizar la libreria Scanner
+ */
 import java.io.*;
 public class Actividad08 {
 

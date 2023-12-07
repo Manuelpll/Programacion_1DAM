@@ -1,7 +1,8 @@
 
 package Tema_3;
-
-
+/*
+ *Es un programa que nos dice si una letra esta dentro del rango indicado o no
+ */
 import java.util.Scanner;
 
 public class Actividad04 {

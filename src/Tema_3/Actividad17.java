@@ -1,4 +1,7 @@
 package Tema_3;
+/**
+ * Es una aplicacion que te da a elegir entre hallar el factorial,decir si es año bisiesto o no y o te dice si es primo un numero
+ */
 import java.util.Scanner;
 import java.math.BigDecimal;
 
@@ -94,9 +97,7 @@ public class Actividad17 {
     }
 
     private static boolean esPrimo(BigDecimal numero2) {
-        if (numero2.compareTo(new BigDecimal("1")) <= 0) {
-
-        }//Fin if
+        new BigDecimal("1");//Fin if
         return false; }
 
     public static void main(String[] args) {

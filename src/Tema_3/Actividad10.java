@@ -1,4 +1,7 @@
 package Tema_3;
+/*
+Es un programa que te genera de formas diferentes una serie que va sumando 1 hasta antes de cien y luego te preguntan numeros para llevar acabo una serie personalizada
+ */
 import java.util.Scanner;
 public class Actividad10 {
 	
@@ -35,7 +38,7 @@ public static void mostrarSumaSerie(int numeroSerie, int limiteFinal) {
     do {
     	System.out.print(numero3+"");
     	numero3+=3;
-    } while (numero3>=99);
+    } while (numero3>96);
 	
 	
      System.out.println("Escribe el numero de la serie");

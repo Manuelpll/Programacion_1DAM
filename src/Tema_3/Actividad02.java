@@ -1,4 +1,9 @@
 package Tema_3;
+/**
+ * Es un programa que te dice cual es el mayor numero de tres numeros insertados por el usuario
+ * @autor Manuel
+ */
+
 import java.util.Scanner;
 public class Actividad02 {
     public static double  compara (double num1, double num2, double num3){

@@ -1,5 +1,7 @@
 package Tema_3;
-
+/*
+Programa que te dice cuantos diptongos e hiatos tiene la frase
+ */
 import java.util.Scanner;
 
 public class ActividadJuego {

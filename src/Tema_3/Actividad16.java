@@ -1,4 +1,7 @@
 package Tema_3;
+/*
+Es una aplicación que te dice si el numero es primo o no
+ */
 import java.math.BigDecimal;
 import java.util.Scanner;
 

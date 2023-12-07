@@ -1,4 +1,7 @@
 package Tema_3;
+/*
+Es un programa que te pide 10 nuemros y te los clasifica
+ */
 import java.util.Scanner;
 
 public class Actividad11 {

@@ -1,4 +1,7 @@
 package Tema_3;
+/*
+ * Es un programa que funciona de conversor de pestas a euros y viceversa
+ */
 import java.util.Scanner;
 
 public class Actividad05 {

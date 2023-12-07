@@ -1,6 +1,8 @@
 package Tema_3;
+/*
+Es un programa que determina si eres adulto o joven y te escriba un mensaje dependiendo del equipo que le digas
+ */
 import java.util.Scanner;
-
 public class Actividad06 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
