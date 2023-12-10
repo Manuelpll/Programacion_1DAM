@@ -1,15 +1,26 @@
 package Tema_3;
-
-/**
- * Repeticion de la serie de numeros que hay contando el que meta el usuarío para que salgan el mismo numero de veces del numero
- * Version 1.0
- * Autor:Manuel Parra Llansó
- */
 import java.util.Scanner;
+
 public class Actividad18 {
+
     public static void main(String[] args) {
-        // Declaramos las variables e inicializamos
-        int numero;
-        Scanner teclado= new Scanner (System.in);
-    }//Fin del main
-}//Fin de la class
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar al usuario que ingrese un número
+        System.out.print("Ingrese un número: ");
+        int numero = scanner.nextInt();
+
+        // Solicitar al usuario que ingrese cuántas veces desea repetir el número
+        System.out.print("Ingrese la cantidad de veces que desea repetir el número: ");
+        int repeticiones = scanner.nextInt();
+
+        // Imprimir la serie de números repetida
+        System.out.println("Serie de números repetida:");
+        for (int i = 0; i < repeticiones; i++) {
+            System.out.print(numero + " ");
+        }
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+}
