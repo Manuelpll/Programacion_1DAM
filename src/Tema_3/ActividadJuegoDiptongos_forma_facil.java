@@ -1,6 +1,6 @@
 package Tema_3;
 import java.util.Scanner;
-@SuppressWarnings("resource")
+
 //Programa que determine a partir de cadena cuántos diptongos tiene. Vocales cerradas o vocales abiertas y cerradas. Cerradas: i, u.
 public class ActividadJuegoDiptongos_forma_facil {
     public static void main(String[] args) {

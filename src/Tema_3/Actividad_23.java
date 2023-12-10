@@ -1,6 +1,6 @@
 package Tema_3;
 import java.util.Scanner;
-@SuppressWarnings("resource")
+
 
 public class Actividad_23 { //ACTIVIDADES PROPUESTAS 3 - 01 (hace una pirámide invertida)
     public static void triangulin (char a, int f){

@@ -1,6 +1,5 @@
 package Tema_3;
 import java.util.Scanner;
-@SuppressWarnings("resource")
 
 public class Actividad_24 {
     public static void serie1 (int n) {

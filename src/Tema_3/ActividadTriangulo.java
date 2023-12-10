@@ -1,6 +1,6 @@
 package Tema_3;
 import java.util.Scanner;
-@SuppressWarnings("resource")
+
 
 public class ActividadTriangulo {
     public static void triangulin(char a, int f) {
