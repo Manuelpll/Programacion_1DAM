@@ -1,8 +1,8 @@
-package DAM_1;
+package Examen_1_Evaluacion.Hecho_Por_mi;
 
 import java.util.Scanner;
 
-public class Ejercicio1 {
+public class Ejercicio1_Manuel {
     public static int Fibonacci(int num1,int num2,int contador){
       for(int i=0;i<contador;i++){
           System.out.print(num1 + ",");

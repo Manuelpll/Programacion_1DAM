@@ -1,4 +1,4 @@
-package DAM_1;
+package Examen_1_Evaluacion.Hecho_Por_mi;
 /**
  * Programa que imprime el abecedario en minusculas y en mayusculas
  * @autor Manuel
@@ -6,7 +6,7 @@ package DAM_1;
 
 import java.util.Scanner;
 
-public class Ejercicio2 {
+public class Ejercicio2_Manuel {
     //Creamos el proceso del menu
     public static int menu(int decision) {
         Scanner teclado = new Scanner(System.in);

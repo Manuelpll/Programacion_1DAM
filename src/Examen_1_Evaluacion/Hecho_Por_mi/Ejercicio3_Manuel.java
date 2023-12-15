@@ -1,6 +1,6 @@
-package DAM_1;
+package Examen_1_Evaluacion.Hecho_Por_mi;
 import java.util.Scanner;
-public class Ejercicio3 {
+public class Ejercicio3_Manuel {
     public static void main(String[] args) {
         int a;
         int b;
