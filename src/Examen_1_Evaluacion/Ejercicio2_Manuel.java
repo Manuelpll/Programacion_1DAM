@@ -1,4 +1,4 @@
-package Examen_1_Evaluacion.Hecho_Por_mi;
+package Examen_1_Evaluacion;
 /**
  * Programa que imprime el abecedario en minusculas y en mayusculas
  * @autor Manuel

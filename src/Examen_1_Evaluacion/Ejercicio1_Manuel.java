@@ -1,4 +1,4 @@
-package Examen_1_Evaluacion.Hecho_Por_mi;
+package Examen_1_Evaluacion;
 
 import java.util.Scanner;
 
