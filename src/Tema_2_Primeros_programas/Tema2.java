@@ -1,4 +1,4 @@
-package tema.pkg2;
+package Tema_2_Primeros_programas;
 import java.lang.Math.*;
 import java.util.Scanner;
 

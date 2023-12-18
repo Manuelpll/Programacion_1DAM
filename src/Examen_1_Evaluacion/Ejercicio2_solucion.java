@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Examen_1_Evaluacion;
 import java.util.Scanner;
 
@@ -9,7 +5,7 @@ import java.util.Scanner;
  *
  * @author Francesco Fevoli Chac�n
  */
-public class Ejercicio2_solución {
+public class Ejercicio2_solucion {
     public static void ABC (char mayus) {
         char letra;
         boolean enye;
@@ -21,7 +17,7 @@ public class Ejercicio2_solución {
                     System.out.print(letra + " ");
                     enye = (i == 78)? true:false; //Cuando se imprima la N (78), la condici�n se cumplir� y se imprimir� la �.
                     if (enye) {
-                        letra = '�';
+                        letra = 'ñ';
                         System.out.print(letra + " ");
                     }
                 }
@@ -35,7 +31,7 @@ public class Ejercicio2_solución {
                     System.out.print(letra + " ");
                     enye = (i == 110)? true:false; //Cuando se imprima la n (110), la condici�n se cumplir� y se imprimir� la �.
                     if (enye) {
-                        letra = '�';
+                        letra = 'ñ';
                         System.out.print(Character.toLowerCase(letra) + " ");
                     }
                 }

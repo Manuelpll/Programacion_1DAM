@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author Francesco Fevoli Chac�n
  * Dos �ltimos n�meros de DNI: 5, 0.
  */
-public class Ejercicio1_solución {
+public class Ejercicio1_solucion {
     public static void serieFibonacci (int num) {
         final int a = 5;
         final int b = 0;
