@@ -1,5 +1,8 @@
 package Tema_4_Programación_orientada_a_objetos.A;
 
+/**
+ * Primer objeto creado:Perro
+ */
 public class Perro {
     String nombre;
     String raza;
