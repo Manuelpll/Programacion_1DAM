@@ -13,7 +13,6 @@ public class Main_A2 {
         //Obtener valores del objeto
         String Ciudad,eMail,Nombre;
         long Movil;
-        Date fecha;
         Ciudad= alumno1.getCiudad();
         eMail= alumno1.geteMail();
         Nombre= alumno1.getNombre();
