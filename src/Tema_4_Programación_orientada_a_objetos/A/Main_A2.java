@@ -1,8 +1,4 @@
 package Tema_4_Programación_orientada_a_objetos.A;
-
-import java.time.LocalDate;
-import java.util.Date;
-
 /**
  * Main de la clase Alumno
  * @author Mparr
@@ -17,7 +13,6 @@ public class Main_A2 {
         //Obtener valores del objeto
         String Ciudad,eMail,Nombre;
         long Movil;
-        Date fecha;
         Ciudad= alumno1.getCiudad();
         eMail= alumno1.geteMail();
         Nombre= alumno1.getNombre();
