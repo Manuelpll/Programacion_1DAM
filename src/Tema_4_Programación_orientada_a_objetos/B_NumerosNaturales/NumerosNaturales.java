@@ -1,4 +1,4 @@
-package Tema_4_Programación_orientada_a_objetos.B;
+package Tema_4_Programación_orientada_a_objetos.B_NumerosNaturales;
 
 /**
  * Clase NumerosNaturales

@@ -1,4 +1,4 @@
-package Tema_4_Programación_orientada_a_objetos.B;
+package Tema_4_Programación_orientada_a_objetos.B_NumerosNaturales;
 
 public class Main_B {
     public static void main(String[] args) {

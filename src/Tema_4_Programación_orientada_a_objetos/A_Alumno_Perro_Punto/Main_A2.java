@@ -1,4 +1,4 @@
-package Tema_4_Programación_orientada_a_objetos.A;
+package Tema_4_Programación_orientada_a_objetos.A_Alumno_Perro_Punto;
 /**
  * Main de la clase Alumno
  * @author Mparr
