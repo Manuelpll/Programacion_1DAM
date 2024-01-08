@@ -8,6 +8,7 @@ public class Individuo {
             this.nombre=nombre;
             this.FechaNacimiento=FechaNacimiento;
             this.Poblacion = Poblacion;
+            Poblacion++;
         /*
         Añado todos los this necesarios
          */
@@ -18,6 +19,7 @@ public class Individuo {
             this.Poblacion=0;
             this.dni="Inserte texto";
             this.nombre="Inserte otro texto";
+            Poblacion++;
         /*
         Este metodo constructor asigna directamente valores
          */
@@ -48,8 +50,8 @@ public class Individuo {
         return FechaNacimiento;
     }//Fin getFechaNacimiento
 
-    public int getPoblacion() {
-        return Poblacion;
+    public  int getPoblacion() {
+             return Poblacion;
     }//Fin getPoblacion
 
     public String getDni() {
