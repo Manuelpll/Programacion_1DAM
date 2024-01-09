@@ -1,14 +1,16 @@
 package Tema_4_Programación_orientada_a_objetos.C_Pajaro_Individuo;
 
 public class Individuo {
-        private  int FechaNacimiento,Poblacion;//Añado todo los atributos que me pidan
-        private String dni,nombre;
-        public   Individuo(int atributo1,int atributo2) {
+        private  int FechaNacimiento;
+        private static int Poblacion;
+        private String dni;
+        private String nombre;
+        public   Individuo(int FechaNacimiento,String dni,String nombre) {
+            super();//Primera linea del metodo constructor,que invoque a la clase superior
             this.dni=dni;
             this.nombre=nombre;
             this.FechaNacimiento=FechaNacimiento;
-            this.Poblacion = Poblacion;
-            Poblacion++;
+            Poblacion++; //Se asume que partira de valor cero
         /*
         Añado todos los this necesarios
          */
@@ -36,10 +38,6 @@ public class Individuo {
     public void setFechaNacimiento(int fechaNacimiento) {
         FechaNacimiento = fechaNacimiento;
     }//Fin setFechaNacimiento
-
-    public void setPoblacion(int poblacion) {
-        Poblacion = poblacion;
-    }//Fin setPoblacion
     //Fin setters
 
     public String getNombre() {
@@ -50,7 +48,7 @@ public class Individuo {
         return FechaNacimiento;
     }//Fin getFechaNacimiento
 
-    public  int getPoblacion() {
+    public  int getPoblacion(int Poblacion) {
              return Poblacion;
     }//Fin getPoblacion
 

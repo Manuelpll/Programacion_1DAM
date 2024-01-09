@@ -28,8 +28,6 @@ public class Main_2 {public static void main(String[] args) {
     Francesco.setNombre("Francesco");
     /*Obtenemos la informacion
      */
-Poblacion=4;
-    System.out.println("La poblacion actual es de: "+Poblacion);
 }
 }
 
