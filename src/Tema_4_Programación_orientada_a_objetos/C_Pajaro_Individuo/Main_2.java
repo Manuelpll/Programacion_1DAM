@@ -1,5 +1,8 @@
 package Tema_4_Programación_orientada_a_objetos.C_Pajaro_Individuo;
 
+/**
+ * Main de Individuo
+ */
 
 public class Main_2 {public static void main(String[] args) {
     //Declaro las variables

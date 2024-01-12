@@ -1,5 +1,7 @@
 package Tema_4_Programación_orientada_a_objetos.C_Pajaro_Individuo;
-
+/*
+*Main de Pajaro
+ */
 public class Main { public static void main(String[] args) {
     int PosXaguila,PosXLoro,PosXPaloma;
     int PosYaguila,PosYLoro,PosYpaloma;
