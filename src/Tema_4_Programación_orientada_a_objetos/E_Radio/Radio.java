@@ -38,10 +38,12 @@ public class Radio {
 
     //Procesos
     public double SubirFrecuencia(double frecuencia){
-         return frecuencia+0.5;
+        frecuencia+=0.5;
+        return frecuencia;
     }
     public double BajarFrecuencia(double frecuencia){
-        return frecuencia-0.5;
+        frecuencia-=0.5;
+        return frecuencia;
     }
     public void MostraFrecuencia(){
         System.out.println("La frecuencia actual es: "+frecuencia+" Hz");

@@ -21,7 +21,7 @@ public class Main {public static void main(String[] args) {
     Radio FM = new Radio();
     //Inserto el menu
     do{
-    System.out.println("\n1.Radio FM" + "\n2.Radio AM");
+    System.out.println("\n1.Radio FM" + "\n2.Radio AM"+"\n3.Salir");
     eleccionRadio = scanner.nextInt();
     switch (eleccionRadio) {
         case 1:
@@ -64,11 +64,10 @@ public class Main {public static void main(String[] args) {
                         break;
                 }//Fin del switch FM
             } while (contador == 0);//Fin do-While
-            scanner.close();
             break;
         case 2:
             do {
-                System.out.println("\n1.Introducir la Frecuencia" + "\n2.Bajar la Frecuencia" + "\n3.Subir la Frecuencia" + "\n4.Mostrar la Frecuencia" + "\n5->Salir");
+                System.out.println("\n1.Introducir la Frecuencia" + "\n2.Bajar la Frecuencia" + "\n3.Subir la Frecuencia" + "\n4.Mostrar la Frecuencia" + "\n5.Salir");
                 eleccion = scanner.nextInt();
 
                 switch (eleccion) {
@@ -97,7 +96,6 @@ public class Main {public static void main(String[] args) {
                         AM.MostraFrecuencia();
                         break;
                     case 5:
-                        System.out.println("Saliendo...");
                         contador++;
                         break;
                     default:
@@ -105,12 +103,15 @@ public class Main {public static void main(String[] args) {
                         break;
                 }//Fin del switch AM
             } while (contador == 0);//Fin do-While2
-            scanner.close();
+            break;
+        case 3:
+            contadorRadio++;
             break;
         default:
             System.out.println("Radio no encontrada");
             break;
     } //Fin swich eleccionRadio
 } while (contadorRadio==0);
+    scanner.close();
 }//Fin del Main
 }//Fin del Main de Radio
