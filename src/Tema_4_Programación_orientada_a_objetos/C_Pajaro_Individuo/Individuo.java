@@ -42,8 +42,8 @@ public class Individuo {
         this.dni = dni;
     }//Fin setDni
 
-    public void setFechaNacimiento(int fechaNacimiento) {
-        FechaNacimiento = fechaNacimiento;
+    public void setFechaNacimiento(Fecha fechaNacimiento) {
+       Fecha FechaNacimiento;
     }//Fin setFechaNacimiento
 
     public static void setPoblacion(int Poblacion) {
