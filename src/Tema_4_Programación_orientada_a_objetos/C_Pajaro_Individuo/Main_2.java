@@ -19,6 +19,8 @@ public class Main_2 {public static void main(String[] args) {
     Fecha G = new Fecha(4,7,2004);
     Individuo Francesco= new Individuo();
     Fecha F = new Fecha(18,9,2004);
+    Individuo Pedro= new Individuo();
+    Fecha P = new Fecha(16,12,2004);
 //Insertamos la informacion de cada objeto
     Individuo.setAñoActual(2024);
     Bryan.setDni("E672893");
@@ -41,6 +43,11 @@ public class Main_2 {public static void main(String[] args) {
     Francesco.setFechaNacimiento(F);
     Francesco.setNombre("Francesco");
     Francesco.setAltura(176);
+    //Fin Francesco
+    Pedro.setDni("36780173U");
+    Pedro.setFechaNacimiento(P);
+    Pedro.setAltura(177);
+    Pedro.setNombre("Pedro");
     //Salida de informacion
     Bryan.SubirAltura();
     Bryan.SaludarAlumno("Bryan",Bryan.getEdad(),Bryan.getAltura());

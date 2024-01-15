@@ -49,7 +49,7 @@ public class Fecha {
         boolean verificacion = false;
         if (año % 4 == 0 && año % 100 != 0 || (año % 400 == 0)) {
             if (mes == 2) {
-                if (dia <= 29) {
+                if (dia <= 29&&dia>=1) {
                     verificacion = true;
                     System.out.println("Fecha valida");
                 } else {
@@ -57,7 +57,7 @@ public class Fecha {
                     System.out.println("Fecha imposible");
                 }//Fin del tercer if de comprovacion de febrero bisiesto
             } else if (mes == 4 | mes == 6 | mes == 9 || mes == 11) {
-                if (dia <= 30) {
+                if (dia <= 30&&dia>=1) {
                     verificacion = true;
                     System.out.println("Fecha valida");
                 } else {
@@ -65,7 +65,7 @@ public class Fecha {
                     System.out.println("Fecha imposible");
                 }//Fin del tercer if de comprovacion de meses con 30 días
             } else if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
-                if (dia <= 31) {
+                if (dia <= 31&& dia>=1) {
                     verificacion = true;
                     System.out.println("Fecha valida");
                 } else {
@@ -77,7 +77,7 @@ public class Fecha {
             }//Fin del else de meses imposibles
         } else {
             if (mes == 2) {
-                if (dia <= 28) {
+                if (dia <= 28&&dia>=1) {
                     verificacion = true;
                     System.out.println("Fecha valida");
                 } else {
@@ -85,7 +85,7 @@ public class Fecha {
                     System.out.println("Fecha imposible");
                 }//Fin del tercer if de comprovacion de febrero
             } else if (mes == 4 | mes == 6 | mes == 9 || mes == 11) {
-                if (dia <= 30) {
+                if (dia <= 30&&dia>=1) {
                     verificacion = true;
                     System.out.println("Fecha valida");
                 } else {
@@ -93,15 +93,15 @@ public class Fecha {
                     System.out.println("Fecha imposible");
                 }//Fin del tercer if de comprovacion de meses con 30 días
             } else if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
-                if (dia <= 31) {
+                if (dia <= 31&&dia>=1) {
                     verificacion = true;
                     System.out.println("Fecha valida");
                 } else {
                     verificacion = false;
                     System.out.println("Fecha imposible");
                 }//Fin del tercer if de comprovacion de meses con 31 días
-            }
-        }
+            }//Fin del else de mes de 31 dias
+        }//Fin del else de año normal
         return verificacion; }//Fin de fechaCorrecta
         public static boolean esBisiesto ( int año ){
             return (año % 4 == 0 && año % 100 != 0) || (año % 400 == 0);
@@ -129,4 +129,7 @@ public class Fecha {
             }//Fin del   primer else del tercer if
         }//Fin del  segundo else-if
     }//Fin de diaSiguiente
+    public void formateoFecha(){
+        System.out.println(dia+"/"+mes+"/"+año);
+    }//Fin de formateoFecha
 }//Fin de la clase
