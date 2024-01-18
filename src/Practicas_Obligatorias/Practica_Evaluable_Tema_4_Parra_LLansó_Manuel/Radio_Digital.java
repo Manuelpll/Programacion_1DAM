@@ -2,7 +2,9 @@ package Practicas_Obligatorias.Practica_Evaluable_Tema_4_Parra_LLansó_Manuel;
 
 /**
  *Clase Radio_Digital
- * @author alumno
+ * @author Manuel
+ * @version 1.0
+ * @date 18/1/2024
  */
 public class Radio_Digital {
     //Declaro los atributos

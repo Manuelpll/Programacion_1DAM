@@ -1,6 +1,9 @@
 package Practicas_Obligatorias.Practica_Evaluable_Tema_4_Parra_LLansó_Manuel;
 /**
  * Main de Radio_Digital
+ * @author Manuel
+ * @version 1.0
+ * @date 18/1/2024
  */
 
 import java.util.Scanner;
