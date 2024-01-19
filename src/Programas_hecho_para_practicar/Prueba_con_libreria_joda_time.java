@@ -4,7 +4,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
-
 public class Prueba_con_libreria_joda_time {
     public static void main(String[] args) {
             System.out.println("Fecha del Día de Hoy ----->" +LocalDate.now());
