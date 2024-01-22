@@ -1,4 +1,6 @@
-package Tema_5_Desarrollo_de_Clases;
+package Tema_5_Desarrollo_de_Clases.A_DNI_con_swing;
+import Tema_5_Desarrollo_de_Clases.A_DNI_con_swing.DNI;
+
 import javax.swing.*;
 public class Main {
     public static void main(String[] args) throws Exception {

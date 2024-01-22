@@ -1,4 +1,4 @@
-package Tema_5_Desarrollo_de_Clases;
+package Tema_5_Desarrollo_de_Clases.A_DNI_con_swing;
 /**
  * Clase DNI utilizando una excepcion
  * @author Mparr

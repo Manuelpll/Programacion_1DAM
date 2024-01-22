@@ -1,4 +1,4 @@
-package Tema_4_Programación_orientada_a_objetos.C_Pajaro_Individuo;
+package Tema_4_Programación_orientada_a_objetos.C_Pajaro_Individuo_Fecha_con_Override;
 /*
 *Main de Pajaro
  */
