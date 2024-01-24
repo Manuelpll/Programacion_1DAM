@@ -26,7 +26,7 @@ public class DNI {
             this.numDNI = dni;//Valor valido y se almacena
 
         } else {
-            throw new Exception("Numero DNI invalido: "+dni);//Da un erro
+            throw new Exception("Numero DNI invalido: "+dni);//Da un error
         }
     }//Fin del metodo establecer
     public String obtenerNIF(){
