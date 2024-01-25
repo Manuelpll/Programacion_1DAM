@@ -1,9 +1,11 @@
 package Practicas_Obligatorias.Practica_Evaluable_Tema_5_Parra_Llansó_Manuel;
-
-import Tema_5_Desarrollo_de_Clases.A_DNI_con_swing.DNI;
-
 import java.time.LocalDate;
-
+/**
+ * Superclase Persona
+ * @author Mparr
+ * @version 1.0
+ * @date 25/01/2024
+ */
 public abstract class Persona {
     //Atributos de la superclase
     protected String nombreCompleto;
@@ -17,6 +19,7 @@ public abstract class Persona {
         this.nombreCompleto=nombreCompleto;
         this.fechaDeNacimiento=fechaDeNacimiento;
         this.DNI=DNI;
+        validarDNI(DNI);
     }//Fin del metodo constructor
 
     //Inicio de los metodos set
@@ -30,6 +33,7 @@ public abstract class Persona {
 
     public void setDNI(String nif) {
         this.DNI = DNI;
+        validarDNI(DNI);
     }
 
     //Inicio de los metodos get
@@ -49,7 +53,7 @@ public abstract class Persona {
     //Procesos concretos
 
     public  boolean validarDNI(String DNI) {
-        if (DNI == null || DNI.length() != 9) {
+        if (DNI == null || DNI.length() < 8||DNI.length() > 9) {
             return false;
         }
 
@@ -63,14 +67,14 @@ public abstract class Persona {
         char letraEsperada = calcularLetra(digitos);
 
         return letra == letraEsperada;
-    }
+    }//Fin del metodo validarDNI
 
     private  char calcularLetra(String digitos) {
         char[] letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE".toCharArray();
         int numeroDNI = Integer.parseInt(digitos);
         int indiceLetra = numeroDNI % 23;
         return letrasDNI[indiceLetra];
-    }
+    }//Fin del metodo calcularLetra
 
 
-}
+}//Fin de la
