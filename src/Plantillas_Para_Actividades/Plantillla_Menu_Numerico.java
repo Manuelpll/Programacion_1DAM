@@ -33,7 +33,7 @@ public class Plantillla_Menu_Numerico {
                 }
             } while (contador == 0);
             scanner.close();
-        }
+        }//Fin de menu
 
         public static void main(String[] args) {
             menu();

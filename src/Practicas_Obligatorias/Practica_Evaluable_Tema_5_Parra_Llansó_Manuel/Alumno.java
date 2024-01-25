@@ -1,21 +1,29 @@
 package Practicas_Obligatorias.Practica_Evaluable_Tema_5_Parra_Llansó_Manuel;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.temporal.ChronoUnit;
 
 public class Alumno extends Persona{
 
-    private long edad;
+    private int  edad;
 
     //Creamos el constructor
+    public Alumno(){};
 
-    public Alumno(String nombreCompleto,LocalDate fechaDeNacimiento,String DNI, long edad){
-        this.nombreCompleto=nombreCompleto;
-        this.fechaDeNacimiento=fechaDeNacimiento;
-        this.DNI=DNI;
+    public Alumno(LocalDate fechaDeNacimiento, String nombreCompleto, String DNI) {
+        super();
+        this.nombreCompleto = nombreCompleto;
+        this.DNI = DNI;
     }
 
-    public void setEdad(int edad) {
-        this.edad=edad;
+    public int calcularEdad( LocalDate fechaNacimiento) {
+        LocalDate fechaActual = LocalDate.now();
+        Period periodo = Period.between(fechaNacimiento, fechaActual);
+        return  periodo.getYears();
+    }
+
+    public int getEdad() {
+        return edad;
     }
 }

@@ -24,8 +24,8 @@ public abstract class Persona {
         this.nombreCompleto = nombreCompleto;
     }
 
-    public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
-        this.fechaDeNacimiento = fechaDeNacimiento;
+    public void setFechaDeNacimiento(LocalDate nuevaFecha) {
+        this.fechaDeNacimiento = nuevaFecha;
     }
 
     public void setDNI(String nif) {
