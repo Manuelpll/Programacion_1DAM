@@ -54,18 +54,24 @@ public class Main {
                     }
                     break;
                 case 2:
-                    String nombre = JOptionPane.showInputDialog("Introduce tu nombre completo");
-                    int año = Integer.parseInt(JOptionPane.showInputDialog("Introduce el año en el que naciste"));
-                    int mes = Integer.parseInt(JOptionPane.showInputDialog("Introduce el mes en el que naciste"));
-                    int dia = Integer.parseInt(JOptionPane.showInputDialog("Introduce el dia en el que naciste"));
-                    LocalDate fechaDeNacimiento = LocalDate.of(año, mes, dia);
-                    String DNI = JOptionPane.showInputDialog("Introduce tu DNI");
+                    try {
+                        String nombre = JOptionPane.showInputDialog("Introduce tu nombre completo");
+                        int año = Integer.parseInt(JOptionPane.showInputDialog("Introduce el año en el que naciste"));
+                        int mes = Integer.parseInt(JOptionPane.showInputDialog("Introduce el mes en el que naciste"));
+                        int dia = Integer.parseInt(JOptionPane.showInputDialog("Introduce el día en el que naciste"));
+                        LocalDate fechaDeNacimiento = LocalDate.of(año, mes, dia);
+                        String DNI = JOptionPane.showInputDialog("Introduce tu DNI");
 
-                    if (a < 15) {
-                        alumnos[i] = new Alumno( fechaDeNacimiento,nombre, DNI);
-                        a++;
-                    } else {
-                        JOptionPane.showMessageDialog(frame, "Ya no puedes añadir más alumnos", "No hay espacio", 2);
+                        if (a < 15) {
+                            alumnos[i] = new Alumno(fechaDeNacimiento, nombre, DNI);
+                            i++;
+                        } else {
+                            JOptionPane.showMessageDialog(frame, "Ya no puedes añadir más alumnos", "No hay espacio", 2);
+                        }
+                    } catch (NumberFormatException e) {
+                        JOptionPane.showMessageDialog(frame, "Error comprueba  si has puesto numeros validos", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                    } catch (DateTimeException e) {
+                        JOptionPane.showMessageDialog(frame, "Error asegúrate de ingresar una fecha válida.", "Error de fecha", JOptionPane.ERROR_MESSAGE);
                     }
                     break;
                 case 3:
