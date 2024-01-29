@@ -4,7 +4,7 @@ import javax.swing.*;
 public class Confirmacion {
     public static void main(String[] args) {
 
-        int respuesta = JOptionPane.showConfirmDialog(null, "¿David es feminista?", "Decision importante", JOptionPane.YES_NO_OPTION);
+        int respuesta = JOptionPane.showConfirmDialog(null, "¿Estas seguro?", "Decision importante", JOptionPane.YES_NO_OPTION);
 
         if (respuesta == JOptionPane.YES_OPTION){
             JOptionPane.showMessageDialog(null,"Cagaste","F",3);
