@@ -77,4 +77,4 @@ public abstract class Persona {
     }//Fin del metodo calcularLetra
 
 
-}//Fin de la
+}//Fin de la superclase

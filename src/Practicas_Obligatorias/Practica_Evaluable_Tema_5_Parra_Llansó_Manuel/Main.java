@@ -62,7 +62,7 @@ public class Main {
                         LocalDate fechaDeNacimiento = LocalDate.of(año, mes, dia);
                         String DNI = JOptionPane.showInputDialog("Introduce tu DNI");
 
-                        if (a < 15) {
+                        if (i< 15) {
                             alumnos[i] = new Alumno(fechaDeNacimiento, nombre, DNI);
                             i++;
                         } else {
