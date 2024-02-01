@@ -1,4 +1,7 @@
 package Tema_6_Estructuras_de_Almacenamiento;
+
+import javax.swing.*;
+
 /*Ejercicio 1º
 ALMACENAR los desyunos,comidas,cenas que realizas en la semana
 Array para las comidas
@@ -14,5 +17,7 @@ metodos concretos;
 Nota:no hace falta introducir los datos por teclado
  */
 public class Ejercicio1_Menu_de_comidas {
+    public static void main(String[] args) {
 
+    }
 }

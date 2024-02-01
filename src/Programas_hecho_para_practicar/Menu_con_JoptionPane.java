@@ -26,7 +26,7 @@ public class Menu_con_JoptionPane {
             default:
                 JOptionPane.showMessageDialog(null,"Opcion no valida","ERROR",0);
                 break;
-        }
+        }//Fin switch
     } while (contador == 0);
 }//Fin de menu
 
