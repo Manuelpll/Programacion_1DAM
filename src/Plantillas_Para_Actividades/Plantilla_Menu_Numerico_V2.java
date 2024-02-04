@@ -1,14 +1,15 @@
 package Plantillas_Para_Actividades;
+
 import java.util.Scanner;
 /**
- * Plantilla para hacer un menu numerico
+ * Plantilla para hacer un menu numerico mejorada
  * @author Mparr
  */
-public class Plantillla_Menu_Numerico {
+public class Plantilla_Menu_Numerico_V2 {
         public static void menu() {
             //Zona de declaracion de variables
-            int contador = 0;
             int eleccion;
+            boolean salir =false;
             //Zona de inicializacion , añadir más cosas si es necesario
             Scanner scanner = new Scanner(System.in);
             //Zona de salida
@@ -25,16 +26,16 @@ public class Plantillla_Menu_Numerico {
                         break;
                     case 0:
                         System.out.println("Saliendo...");
-                        contador++;
+                       salir=true;
                         break;
                     default:
                         System.out.println("Error");
                         break;
                 }//Fin switch
-            } while (contador == 0);
+            } while (!salir);
         }//Fin de menu
 
         public static void main(String[] args) {
             menu();
-        }
-    }
+        }//Fin main
+    }//Fin de Plantilla_Menu_Numerico_V2
