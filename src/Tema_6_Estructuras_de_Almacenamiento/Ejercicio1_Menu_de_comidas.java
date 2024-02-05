@@ -8,6 +8,7 @@ import java.util.Scanner;
  * @version 1.0
  * @date 04/02/2024
  */
+
 /*Ejercicio 1º
 ALMACENAR los desyunos,comidas,cenas que realizas en la semana
 Array bidimensional para las comidas
@@ -58,10 +59,8 @@ public class Ejercicio1_Menu_de_comidas {
                         String diaDelaSemana= scanner.nextLine();
                     for (int i = 0; i < diasSemana.length; i++) {
                         if(diaDelaSemana.equalsIgnoreCase(diasSemana[i])){
-                            System.out.println("\nAqui tienes el menu del "+diasSemana[i]+":"+"\n"+comidas[i][0]+"\n"+comidas[i][1]+"\n"+comidas[i][2]);
+                            System.out.print("\nAqui tienes el menu del "+diasSemana[i]+":"+"\n"+comidas[i][0]+"\n"+comidas[i][1]+"\n"+comidas[i][2]);
                             break;
-                        }else {
-                            System.out.println(" ");
                         }
                     }
                     System.out.println();

@@ -1,0 +1,79 @@
+package Tema_6_Estructuras_de_Almacenamiento;
+
+import java.util.Scanner;
+
+public class Ejercicio2_Menu_De_Alumno_Primera_Version {
+    public static void menu() {
+        //Zona de declaracion de variables
+        String[] alumno = new String[29];
+        alumno[0]="Fran";
+        alumno[1]="Borja";
+        alumno[2]="Bryan";
+        String[][] asignaturas={{"Programacion","Bases de Datos","Lenguaje de marcas","Entornos de Desarollo","Sistemas informaticos","Fol"},{"Programacion","Bases de Datos","Lenguaje de marcas","Entornos de Desarollo","Sistemas informaticos"},{"Programacion","Bases de Datos"}};
+        boolean[]repetidores= new boolean[29];
+        int eleccion;
+        boolean salir =false;
+        //Zona de inicializacion , añadir más cosas si es necesario
+        Scanner scanner = new Scanner(System.in);
+        //Zona de salida
+        do {
+            System.out.println("""
+                    Elije una de las opciones
+                    1->Asignaturas matriculadas por los alumnos
+                    2->Asignaturas de un alumno concreto
+                    3->Asignaturas de los alumnos repetidores
+                    Para salir pulse 0""");
+            eleccion = scanner.nextInt();
+            scanner.nextLine();
+            switch (eleccion) {
+                case 1:
+                    int maxAsignaturas = 0;
+                    for (int i = 0; i < asignaturas.length; i++) {
+                        if (asignaturas[i].length > maxAsignaturas) {
+                            maxAsignaturas = asignaturas[i].length;
+                        }//Fin primer if
+                    }//Fin primer for
+                    for (int i = alumno.length - 1; i >= 0; i--) {
+                        System.out.println("Nombre del alumno: " + alumno[i]);
+                        if (i < asignaturas.length) {  // Asegurar que haya filas en asignaturas
+                            for (int j = 0; j < maxAsignaturas; j++) {
+                                if (j < asignaturas[i].length) {
+                                    System.out.print(asignaturas[i][j] + ",");
+                                }//Fin segundo if
+                            }//Fin segundo for
+                        }//Fin tercer  if
+                        System.out.println(" ");
+                    }//Fin tercer for
+                    break;
+                case 2:
+                    System.out.println("Introduce el alumno  que quieres ver ");
+                    String alumnoElegido = scanner.nextLine();
+                    for (int i = 0; i < alumno.length; i++) {
+                        if(alumnoElegido.equalsIgnoreCase(alumno[i])){
+                            System.out.print(alumno[i]);
+                            for (int j= 0;j< asignaturas[i].length;j++){
+                                System.out.println(" ");
+                                System.out.println(asignaturas[i][j]);
+                            }//Fin segundo for
+                            break;
+                        }//Fin if
+                    }//Fin primer for
+                    break;
+                case 3:
+
+                    break;
+                case 0:
+                    System.out.println("Saliendo...");
+                    salir=true;
+                    break;
+                default:
+                    System.out.println("Error");
+                    break;
+            }//Fin switch
+        } while (!salir);
+    }//Fin de menu
+
+    public static void main(String[] args) {
+        menu();
+    }
+}
