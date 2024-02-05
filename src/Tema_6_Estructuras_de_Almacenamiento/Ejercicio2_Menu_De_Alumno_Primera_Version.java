@@ -11,6 +11,9 @@ public class Ejercicio2_Menu_De_Alumno_Primera_Version {
         alumno[2]="Bryan";
         String[][] asignaturas={{"Programacion","Bases de Datos","Lenguaje de marcas","Entornos de Desarollo","Sistemas informaticos","Fol"},{"Programacion","Bases de Datos","Lenguaje de marcas","Entornos de Desarollo","Sistemas informaticos"},{"Programacion","Bases de Datos"}};
         boolean[]repetidores= new boolean[29];
+        repetidores[0]=false;
+        repetidores[1]=false;
+        repetidores[2]=true;
         int eleccion;
         boolean salir =false;
         //Zona de inicializacion , añadir más cosas si es necesario
@@ -60,7 +63,19 @@ public class Ejercicio2_Menu_De_Alumno_Primera_Version {
                     }//Fin primer for
                     break;
                 case 3:
+                    System.out.println("Asignaturas de los alumnos repetidores:");
+                    for (int i = 0; i < alumno.length; i++) {
+                        if (repetidores[i]) {
+                            System.out.println("Nombre del alumno (Repetidor): " + alumno[i]);
 
+                            if (i < asignaturas.length) {
+                                for (int j = 0; j < asignaturas[i].length; j++) {
+                                    System.out.print(asignaturas[i][j] + ",");
+                                }
+                                System.out.println(" ");
+                            }
+                        }
+                    }
                     break;
                 case 0:
                     System.out.println("Saliendo...");
