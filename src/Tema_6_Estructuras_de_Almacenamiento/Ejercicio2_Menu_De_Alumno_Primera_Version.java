@@ -2,6 +2,12 @@ package Tema_6_Estructuras_de_Almacenamiento;
 
 import java.util.Scanner;
 
+/**
+ * Menu para ver asignaturas de alumnos y si las asignayuras de los repetidores
+ * @author Mparll
+ * @version 1.0
+ * @date 06/2/2024
+ */
 public class Ejercicio2_Menu_De_Alumno_Primera_Version {
     public static void menu() {
         //Zona de declaracion de variables
@@ -71,11 +77,11 @@ public class Ejercicio2_Menu_De_Alumno_Primera_Version {
                             if (i < asignaturas.length) {
                                 for (int j = 0; j < asignaturas[i].length; j++) {
                                     System.out.print(asignaturas[i][j] + ",");
-                                }
+                                }//Fin primer for
                                 System.out.println(" ");
-                            }
-                        }
-                    }
+                            }//Fin primer if
+                        }//Fin segundo if
+                    }//Fin segundo for
                     break;
                 case 0:
                     System.out.println("Saliendo...");
