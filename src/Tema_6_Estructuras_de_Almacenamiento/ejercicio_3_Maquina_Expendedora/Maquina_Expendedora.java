@@ -2,6 +2,9 @@ package Tema_6_Estructuras_de_Almacenamiento.ejercicio_3_Maquina_Expendedora;
 
 import java.util.Scanner;
 
+/**
+ * Maquina expendedora de comida y bebida
+ */
 public class Maquina_Expendedora {
     public static void menu() {
         //Zona de declaracion de variables
