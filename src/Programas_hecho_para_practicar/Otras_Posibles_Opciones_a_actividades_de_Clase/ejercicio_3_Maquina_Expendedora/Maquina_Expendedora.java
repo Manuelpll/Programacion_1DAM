@@ -12,7 +12,6 @@ public class Maquina_Expendedora {
             int eleccion;
             boolean salir = false;
 
-            // Un único array bidimensional que contendrá todos los productos
             Producto[][] productos = new Producto[3][];
             productos[0] = new Producto[5]; // Bebidas
             productos[1] = new Producto[2]; // Sandwichs
@@ -113,7 +112,6 @@ public class Maquina_Expendedora {
                 }//Fin switch
             } while (!salir);
         }//Fin de menu
-
         public static void main(String[] args) {
             menu();
         }//Fin main
