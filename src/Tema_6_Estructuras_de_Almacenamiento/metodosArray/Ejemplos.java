@@ -1,14 +1,21 @@
 package Tema_6_Estructuras_de_Almacenamiento.metodosArray;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Metodos para copiar un array
  */
 public class Ejemplos {
+    /*
+    Creo un metodo que da la vuelta al array
+     */
+    static void arrayReverse(int[] array){
+        for (int i=0;i< array.length/2;i++){
+            int temp=array[i];
+            array[i]=array[array.length-i-1];
+            array[array.length-i-1]=temp;
+        }//Fin for
+    }//Fin arrayReverse
     public static void main(String[] args) {
         int [] primes={1,2,3,4,6,9,11};
         int [] copia= new int[primes.length];
@@ -43,11 +50,37 @@ public class Ejemplos {
         copiaBi[1][1]=20;
         System.out.println("Copia del array bidimensional"+ Arrays.deepToString(copiaBi));
         /*
-        Ordeno el array de forma ascendente y descendente que se utiliza la libreria java.util.Collection
+        Ordeno el array de forma ascendente y descendente
          */
         Arrays.sort(copia);
-        System.out.println("Array ordenad ascendiente"+Arrays.toString(copia));
-        List<int[]> list = Arrays.asList(copia);
-        Collections.sort(list, Collections.reverseOrder());
+        System.out.println("Array ordenado ascendiente"+Arrays.toString(copia));
+        arrayReverse(copia);
+        System.out.println("Array ordenado descendente"+Arrays.toString(copia));
+          /*
+          Utilizamos el metodo fill para rellenar un array
+           */
+        int[] numero= new int[5];
+        Arrays.fill(numero,50);
+        System.out.println("Matriz Rellena:"+Arrays.toString(numero));
+        /*
+        Utilizamos un metodo para buscar un numero en un array
+         */
+        int target=49;
+        int index=Arrays.binarySearch(numero,target);
+        if (index>=0){
+            System.out.println("Elemento "+target+"encontrado en el indice"+index);
+        }else {
+            System.out.println("Elemento "+target+" No encontrado ");
+        }
+        /*
+        Utilizamos el metodo .deepEquals para comparar matrices multidimensionales
+         */
+        int[][]matriz1={{1,1},{2,2}};
+        int[][]matriz2={{1,1},{2,2}};
+        boolean sonIguales=Arrays.deepEquals(matriz1,matriz2);
+        System.out.println("¿Las matrices son iguales?"+sonIguales);
+        /*
+        Para concatenar un array necsitariamos tener un proyecto java con Maven y utilizar la libreria de apache
+         */
     }
 }//Fin de la clase
