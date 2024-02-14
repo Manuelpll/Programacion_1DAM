@@ -85,7 +85,9 @@ public class Main {
                             Arrays.toString(temperaturasEne);
                         
                     } else if (mes.equalsIgnoreCase(febrero)) {
-                        
+                        Arrays.toString(temperaturasFeb);
+                    }else {
+                        System.out.println("Temperatura "+"de"+mes+"es"+"0");
                     }
                     break;
                 case 0:
@@ -99,6 +101,6 @@ public class Main {
         } while (!salir);
     }//Fin de menu
     public static void main(String[] args) {
-
+ menu();
     }
 }

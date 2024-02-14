@@ -7,16 +7,18 @@ package Practicas_Obligatorias.Practica_Evaluable_Tema_6_Parra_Llansó_Manuel.ac
  */
 public class Temperatura {
     //Declaro las variables
-        public  static int dia;
-        public  static double temMin;
-        public  static  double temMax;
+        public   int dia;
+        public   double temMin;
+        public    double temMax;
+        public  double temMedi;
         public Temperatura(int dia,double temMax,double temMin){
             this.dia=dia;
             this.temMin=temMin;
             this.temMax=temMax;
+            this.temMedi=(temMax+temMin)/2;
         }//Fin del constructor
     @Override
     public String toString(){
-            return "Dia"+dia+": "+"("+temMax+","+temMin+")";
+            return "Dia"+dia+": "+"("+temMax+","+temMin+")"+"y la temperatura media es"+temMedi;
     }
 }
