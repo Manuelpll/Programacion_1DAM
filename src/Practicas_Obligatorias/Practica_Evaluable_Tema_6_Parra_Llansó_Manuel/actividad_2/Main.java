@@ -1,8 +1,6 @@
 package Practicas_Obligatorias.Practica_Evaluable_Tema_6_Parra_Llansó_Manuel.actividad_2;
 
-import Programas_hecho_para_practicar.Otras_Posibles_Opciones_a_actividades_de_Clase.ejercicio_3_Maquina_Expendedora.Producto;
-
-import javax.swing.*;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -10,6 +8,8 @@ public class Main {
         //Zona de declaracion de variables
         int eleccion;
         boolean salir =false;
+        String enero="enero";
+        String febrero="febrero";
         //temperatura Enero
         Temperatura[][] temperaturasEne = new Temperatura[31][];
         temperaturasEne[0][0]= new Temperatura(1,10,2);
@@ -44,7 +44,7 @@ public class Main {
         temperaturasEne[29][0]= new Temperatura(30,13,4);
         temperaturasEne[30][0]= new Temperatura(31,11,4);
 // Temperaturas de Febrero
-        Temperatura[][] temperaturasFeb=new Temperatura[20][];
+        Temperatura[][] temperaturasFeb=new Temperatura[21][];
         temperaturasFeb[0][0]=new Temperatura(1,18,4);
         temperaturasFeb[1][0]=new Temperatura(2,15,4);
         temperaturasFeb[2][0]=new Temperatura(3,15,4);
@@ -72,14 +72,21 @@ public class Main {
             System.out.println("""
                     **************************
                     Elige una opcion del menu:
-                    1 -> Elegir temperatura
+                    1 -> Elegir mes
                     0->Salir
                     ***************************""");
             eleccion = scanner.nextInt();
-
+            scanner.nextLine();
             switch (eleccion) {
                 case 1:
-                    System.out.println("Funciones pedidas");
+                    System.out.println("¿Que mes quieres ver?");
+                    String mes=scanner.nextLine();
+                    if(mes.equalsIgnoreCase(enero)){
+                            Arrays.toString(temperaturasEne);
+                        
+                    } else if (mes.equalsIgnoreCase(febrero)) {
+                        
+                    }
                     break;
                 case 0:
                     System.out.println("Saliendo...");
