@@ -3,15 +3,41 @@ package Practicas_Obligatorias.Practica_Evaluable_Tema_6_Parra_Llansó_Manuel.ac
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * @author Mparr
+ * @version 1.0
+ * @date 15/02/2024
+ */
 public class Main {
+    public   static void  elegirTemperatura(String enero,String febrero,Temperatura[][] temperaturasEne,Temperatura[][] temperaturasFeb){
+        Scanner scanner2 = new Scanner(System.in);
+        System.out.println("¿Que mes quieres ver?");
+        String mes=scanner2.nextLine();
+        if(mes.equalsIgnoreCase(enero)){
+            for (Temperatura[] temperaturaDia : temperaturasEne) {
+                System.out.println(Arrays.deepToString(temperaturaDia));
+            }//Fin for
+            System.out.println();
+        } else if (mes.equalsIgnoreCase(febrero)) {
+            for(Temperatura[] temperaturaDia: temperaturasFeb) {
+                System.out.println(Arrays.deepToString(temperaturaDia));
+            }//Fin for
+            System.out.println();
+        }else {
+            System.out.println("Temperaturas "+"del "+mes+" no esta registrada aun");
+        }//Fin if
+    }
     public static void menu() {
         //Zona de declaracion de variables
         int eleccion;
         boolean salir =false;
         String enero="enero";
         String febrero="febrero";
-        //temperatura Enero
+        //Temperaturas de Enero
         Temperatura[][] temperaturasEne = new Temperatura[31][];
+        for (int i = 0; i < temperaturasEne.length; i++) {
+            temperaturasEne[i] = new Temperatura[1];
+        }//Fin for
         temperaturasEne[0][0]= new Temperatura(1,10,2);
         temperaturasEne[1][0]= new Temperatura(2,9,2);
         temperaturasEne[2][0]= new Temperatura(3,12,8);
@@ -45,27 +71,30 @@ public class Main {
         temperaturasEne[30][0]= new Temperatura(31,11,4);
 // Temperaturas de Febrero
         Temperatura[][] temperaturasFeb=new Temperatura[21][];
+        for (int i = 0; i < temperaturasFeb.length; i++) {
+            temperaturasFeb[i] = new Temperatura[1];
+        }//Fin for
         temperaturasFeb[0][0]=new Temperatura(1,18,4);
         temperaturasFeb[1][0]=new Temperatura(2,15,4);
-        temperaturasFeb[2][0]=new Temperatura(3,15,4);
-        temperaturasFeb[3][0]=new Temperatura(4,15,4);
-        temperaturasFeb[4][0]=new Temperatura(5,15,4);
-        temperaturasFeb[5][0]=new Temperatura(6,15,4);
-        temperaturasFeb[6][0]=new Temperatura(7,15,4);
-        temperaturasFeb[7][0]=new Temperatura(8,15,4);
-        temperaturasFeb[8][0]=new Temperatura(9,15,4);
-        temperaturasFeb[9][0]=new Temperatura(10,15,4);
-        temperaturasFeb[10][0]=new Temperatura(11,15,4);
-        temperaturasFeb[11][0]=new Temperatura(12,15,4);
-        temperaturasFeb[12][0]=new Temperatura(13,15,4);
-        temperaturasFeb[13][0]=new Temperatura(14,15,4);
-        temperaturasFeb[14][0]=new Temperatura(15,15,4);
-        temperaturasFeb[15][0]=new Temperatura(16,15,4);
-        temperaturasFeb[16][0]=new Temperatura(17,15,4);
-        temperaturasFeb[18][0]=new Temperatura(18,15,4);
-        temperaturasFeb[19][0]=new Temperatura(19,15,4);
-        temperaturasFeb[20][0]=new Temperatura(20,15,4);
-        //Zona de inicializacion , añadir más cosas si es necesario
+        temperaturasFeb[2][0]=new Temperatura(3,15,5);
+        temperaturasFeb[3][0]=new Temperatura(4,18,3);
+        temperaturasFeb[4][0]=new Temperatura(5,15,2);
+        temperaturasFeb[5][0]=new Temperatura(6,14,5);
+        temperaturasFeb[6][0]=new Temperatura(7,11,5);
+        temperaturasFeb[7][0]=new Temperatura(8,12,8);
+        temperaturasFeb[8][0]=new Temperatura(9,11,8);
+        temperaturasFeb[9][0]=new Temperatura(10,10,4);
+        temperaturasFeb[10][0]=new Temperatura(11,8,2);
+        temperaturasFeb[11][0]=new Temperatura(12,14,5);
+        temperaturasFeb[12][0]=new Temperatura(13,15,9);
+        temperaturasFeb[13][0]=new Temperatura(14,17,8);
+        temperaturasFeb[14][0]=new Temperatura(15,9,1);
+        temperaturasFeb[15][0]=new Temperatura(16,4,0);
+        temperaturasFeb[16][0]=new Temperatura(17,8,2);
+        temperaturasFeb[18][0]=new Temperatura(18,10,2);
+        temperaturasFeb[19][0]=new Temperatura(19,9,1);
+        temperaturasFeb[20][0]=new Temperatura(20,7,0);
+        //Zona de inicializacion
         Scanner scanner = new Scanner(System.in);
         //Zona de salida
         do {
@@ -79,16 +108,7 @@ public class Main {
             scanner.nextLine();
             switch (eleccion) {
                 case 1:
-                    System.out.println("¿Que mes quieres ver?");
-                    String mes=scanner.nextLine();
-                    if(mes.equalsIgnoreCase(enero)){
-                            Arrays.toString(temperaturasEne);
-                        
-                    } else if (mes.equalsIgnoreCase(febrero)) {
-                        Arrays.toString(temperaturasFeb);
-                    }else {
-                        System.out.println("Temperatura "+"de"+mes+"es"+"0");
-                    }
+                   elegirTemperatura(enero,febrero,temperaturasEne,temperaturasFeb);
                     break;
                 case 0:
                     System.out.println("Saliendo...");
@@ -102,5 +122,5 @@ public class Main {
     }//Fin de menu
     public static void main(String[] args) {
  menu();
-    }
-}
+    }//Fin del main
+}//Fin de la clase Main
