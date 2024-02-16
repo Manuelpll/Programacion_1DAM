@@ -1,4 +1,5 @@
 package Practicas_Obligatorias.Practica_Evaluable_Tema_5_Parra_Llansó_Manuel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
@@ -11,9 +12,9 @@ import java.time.temporal.ChronoUnit;
  * @date 25/01/2024
  */
 public class Alumno extends Persona{
-//Creamos un atributo para que calcula la edad que tiene la persona
+    //Creamos un atributo para que calcula la edad que tiene la persona
     Component frame;
-     private Period periodo;
+    private Period periodo;
     //Creamos el constructor
     public Alumno(){}//Metodo vacio
 

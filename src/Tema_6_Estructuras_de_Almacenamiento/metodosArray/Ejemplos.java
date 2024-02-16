@@ -3,7 +3,8 @@ package Tema_6_Estructuras_de_Almacenamiento.metodosArray;
 import java.util.Arrays;
 
 /**
- * Metodos para copiar un array
+ * Metodos para copiar,ordenar y buscar un elmento en un array
+ * @author Mparr
  */
 public class Ejemplos {
     /*

@@ -26,7 +26,7 @@ public class Main {
         }else {
             System.out.println("Temperaturas "+"del "+mes+" no esta registrada aun");
         }//Fin if
-    }
+    }//Fin de elegirTemperatura
     public static void menu() {
         //Zona de declaracion de variables
         int eleccion;
