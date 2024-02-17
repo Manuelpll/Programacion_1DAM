@@ -21,7 +21,6 @@ public class Alumno_Clase {
          return nombre+":"+nota;
     }//Fin del toString
     public int compareTo(Alumno_Clase otroAlumno) {
-        // Comparar por nombre alfabéticamente
         return this.nombre.compareTo(otroAlumno.nombre);
     }//Fin de compareTo para nombres
     public int compararPorNotaDescendente(Alumno_Clase otroAlumno) {
