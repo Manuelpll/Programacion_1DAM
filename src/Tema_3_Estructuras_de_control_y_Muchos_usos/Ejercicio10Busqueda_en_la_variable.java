@@ -43,7 +43,7 @@ public class Ejercicio10Busqueda_en_la_variable {
             String Stexto = "palabra1 palabra2 palabra3";//En lo que se va a buscar
             String busqueda = "palabra2";//Lo que se quiere buscar
             int contador = 0;
-            while (Stexto.indexOf(busqueda)>-1) ;
+            while (Stexto.indexOf(busqueda)>1) ;
             {
                 Stexto = Stexto.substring(Stexto.indexOf(busqueda) + busqueda.length(), Stexto.indexOf(busqueda));
                 contador++;
