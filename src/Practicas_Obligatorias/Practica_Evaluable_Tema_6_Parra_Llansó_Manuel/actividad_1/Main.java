@@ -17,10 +17,10 @@ public class Main {
                     3 -> Copiar cadena
                     4 -> Muestra cuantas vocales tiene la cadena
                     5 -> Muestra si tiene el caracter indicado
-                    6 -> Muestra un valor dependiendo de lo igual que es la cadena a otra cadena
+                    6 -> Muestra si hay una palabra/palabras/silaba en la cadena
                     7-> Convertir la cadena a mayusculas
                     8-> Eliminar las vocales de la cadena
-                    0->Salir"""));// Comprobar la opcion  6
+                    0->Salir"""));
 
             switch (eleccion) {
                 case 1:
@@ -33,6 +33,7 @@ public class Main {
                     break;
                 case 3:
                     String  cadenaCopiada=cadena.copiar(cadena.getCadena());
+                    JOptionPane.showMessageDialog(null,"Esta es la cadena es la copia de la cadena"+cadenaCopiada);
                     break;
                 case 4:
                     int numVocales= Integer.parseInt(cadena.numeroVocales(cadena.getCadena()));
@@ -40,28 +41,29 @@ public class Main {
                     break;
                 case 5:
                     String caracterElegido=JOptionPane.showInputDialog(null,"Introduce el caracter que quieres que compruebe (Inserta un solo caracter)");
-                    boolean contieneCaracter= cadena.contieneVocal(cadena.getCadena(),caracterElegido);
+                    boolean contieneCaracter= cadena.contieneCaracter(cadena.getCadena(),caracterElegido);
                     if (contieneCaracter){
                         JOptionPane.showMessageDialog(null,"La cadena si contiene "+caracterElegido);
                     }else {
                         JOptionPane.showMessageDialog(null,"La cadena no contiene "+caracterElegido);
-                    }
+                    }//Fin del if-else
                     break;
                 case 6:
                     String palabra=JOptionPane.showInputDialog(null,"Introduc una o varias palabras par comprobar en la cadena");
                    boolean comparacion= cadena.contieneCadena(cadena.getCadena(),palabra);
-                   JOptionPane.showMessageDialog(null,"La cadena insertada  en la comparacion es "+comparacion);
-                    //Pendiente de preguntar
+                   if (comparacion){
+                   JOptionPane.showMessageDialog(null,"La palabra/palabras/silaba  insertadas  si estan");
+                         } else {
+                       JOptionPane.showMessageDialog(null,"La palabra/palabras/silaba  insertadas no estan en la cadena");
+                   }//Fin del if
                     break;
                 case 7:
                     String cadenaMayus=cadena.convertirMayusculas(cadena.getCadena());
-                    cadena.setCadena(cadenaMayus);
-                    JOptionPane.showMessageDialog(null,"La cadena actual es: "+cadena.getCadena());
+                    cadena.escribirCadena(cadenaMayus);
                     break;
                 case 8:
                     String cadenaSinVocales =cadena.eliminarVocales(cadena.getCadena());
-                    cadena.setCadena(cadenaSinVocales);
-                    JOptionPane.showMessageDialog(null,"Esta es la cadena actual: "+cadena.getCadena());
+                    cadena.escribirCadena(cadenaSinVocales);
                     break;
                 case 0:
                     JOptionPane.showMessageDialog(null,"Saliendo...","Finalizando",3);
