@@ -29,7 +29,7 @@ public class Main {
                     break;
                 case 2:
                     int longitudDeLaCadena=cadena.longitud(cadena.getCadena());
-                    JOptionPane.showMessageDialog(null,"La longitud de la cadena es: "+Cadena.getTamaño());
+                    JOptionPane.showMessageDialog(null,"La longitud de la cadena es: "+longitudDeLaCadena);
                     break;
                 case 3:
                     String  cadenaCopiada=cadena.copiar(cadena.getCadena());
