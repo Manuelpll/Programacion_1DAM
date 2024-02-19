@@ -19,7 +19,7 @@ public class Main {
       //Menu para añadir un objeto al array
             String nombre = JOptionPane.showInputDialog("Inserta el nombre del alumno");
             int nota = Integer.parseInt(JOptionPane.showInputDialog("Inserta la nota del alumno"));
-            if (i< 15) {
+            if (i< 31) {
                  alumnos[i]= new Alumno_Clase(nombre,nota);
                 i++;
             } else {

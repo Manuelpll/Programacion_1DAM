@@ -35,8 +35,8 @@ public class Main {
                     String  cadenaCopiada=cadena.copiar(cadena.getCadena());
                     break;
                 case 4:
-                    int numvocales= Integer.parseInt(cadena.numeroVocales(cadena.getCadena()));
-                    JOptionPane.showMessageDialog(null,"El numero de vocales de la cadena es: "+numvocales,"Vocales",3);
+                    int numVocales= Integer.parseInt(cadena.numeroVocales(cadena.getCadena()));
+                    JOptionPane.showMessageDialog(null,"El numero de vocales de la cadena es: "+numVocales,"Vocales",3);
                     break;
                 case 5:
                     String caracterElegido=JOptionPane.showInputDialog(null,"Introduce el caracter que quieres que compruebe (Inserta un solo caracter)");
@@ -48,14 +48,19 @@ public class Main {
                     }
                     break;
                 case 6:
+                    String palabra=JOptionPane.showInputDialog(null,"Introduc una o varias palabras par comprobar en la cadena");
+                   boolean comparacion= cadena.contieneCadena(cadena.getCadena(),palabra);
+                   JOptionPane.showMessageDialog(null,"La cadena insertada  en la comparacion es "+comparacion);
                     //Pendiente de preguntar
                     break;
                 case 7:
                     String cadenaMayus=cadena.convertirMayusculas(cadena.getCadena());
-                    JOptionPane.showMessageDialog(null,"La cadena actual es:"+cadena.getCadena());
+                    cadena.setCadena(cadenaMayus);
+                    JOptionPane.showMessageDialog(null,"La cadena actual es: "+cadena.getCadena());
                     break;
                 case 8:
-                    cadena.eliminarVocales(cadena.getCadena());
+                    String cadenaSinVocales =cadena.eliminarVocales(cadena.getCadena());
+                    cadena.setCadena(cadenaSinVocales);
                     JOptionPane.showMessageDialog(null,"Esta es la cadena actual: "+cadena.getCadena());
                     break;
                 case 0:
@@ -67,8 +72,8 @@ public class Main {
                     break;
             }//Fin del swich
         } while (!salir);
-    }
+    }//Fin de manipulacionDeCademasDeCaracteres
     public static void main(String[] args) {
         manipulacionDeCadenasDeCaracteres();
-    }
-}
+    }//Fin del main
+}//Fin de Main

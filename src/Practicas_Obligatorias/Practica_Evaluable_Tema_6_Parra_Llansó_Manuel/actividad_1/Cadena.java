@@ -34,21 +34,22 @@ public class Cadena {
     }
 
    public String numeroVocales(String cadena){
-        String vocales="aeiou";
+        String vocales="aeiouAEIOUáéíóúÁÉÍÓÚ";
         int numero=0;
         for (int i=0;i<cadena.length();i++){
-            if (cadena.contains(vocales)){
+            char caracterActual = cadena.charAt(i);
+            if (vocales.contains(String.valueOf(caracterActual))){
                 numero++;
-            }
-        }
+            }//Fin if
+        }// Fin for
      return String.valueOf(numero);
    }
 public  boolean contieneVocal(String cadena,String caracter){
-    return cadena.equals(caracter);
+    return cadena.contains(caracter);
 }
 
-public boolean contieneCadena(String cadena){
-return cadena.equals(cadena);
+public boolean contieneCadena(String cadena, String palabra){
+        return cadena.contains(palabra);
 }
 
 public String convertirMayusculas(String cadena){
@@ -60,12 +61,13 @@ public  String eliminarVocales(String cadena){
             char c= cadena.charAt(i);
             if (!esVocal(c)){
                 cadenaSinVocales += c;
-            }
-        }
-        return  cadenaSinVocales;
-}
-public  boolean esVocal(char i){
-        return i == 'a' || i == 'e' || i== 'i' || i == 'o' || i == 'u' ||
-                i== 'A' || i == 'E' || i == 'I' || i == 'O' || i == 'U';
-}
-}
+            }//Fin if
+        }//Fin for
+        return   cadenaSinVocales;
+}//Fin eliminarVocales
+public  boolean esVocal(char j){
+        j= Character.toLowerCase(j);
+        return j == 'a' || j == 'e' || j== 'i' || j == 'o' || j == 'u';
+
+}//Fin de esVocal
+}//Fin de la clase cadena

@@ -18,8 +18,12 @@ public class Temperatura {
             this.temMax=temMax;
             this.temMedi= (double) (temMax + temMin) /2;
         }//Fin del constructor
+
+    public double getTemMedi() {
+        return temMedi;
+    }//Fin de getTemMedi
     @Override
     public String toString(){
-            return "Dia "+dia+": "+"("+temMax+","+temMin+")"+"y la temperatura media es "+temMedi;
+            return "Dia "+dia+": "+"("+temMax+","+temMin+")"+" y la temperatura media es "+temMedi;
     }
 }

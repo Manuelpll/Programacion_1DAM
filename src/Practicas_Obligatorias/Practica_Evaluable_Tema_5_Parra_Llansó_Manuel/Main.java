@@ -29,11 +29,12 @@ public class Main {
 
         // Empiezo el menú
         do {
-            eleccion = Integer.parseInt(JOptionPane.showInputDialog("\nOpcion 1 -> Introducir Profesor"
-                    + "\nOpcion 2 -> Introducir Alumno"
-                    + "\nOpcion 3 -> Imprimir Profesores"
-                    + "\nOpcion 4 -> Imprimir Alumnos"
-                    + "\nOpcion 5 -> Salir"));
+            eleccion = Integer.parseInt(JOptionPane.showInputDialog("""
+                    Opcion 1 -> Introducir Profesor
+                    Opcion 2 -> Introducir Alumno
+                    Opcion 3 -> Imprimir Profesores
+                    Opcion 4 -> Imprimir Alumnos
+                    Opcion 5 -> Salir"""));
 
             switch (eleccion) {
                 case 1:
