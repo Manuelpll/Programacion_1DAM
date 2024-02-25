@@ -32,9 +32,9 @@ public class Ejemplo_4 {
                 operacion=false;
             }finally {
                 intentos++;
-            }
-        } while (!operacion);
+            }//Fin del try-catch-finally
+        } while (!operacion); //Fin do-while
         System.out.println("Este es el resultado " + resultado+"\nEl numero de intentos es"+intentos);
         scanner.close();
-    }
-}
+    }//Fin del main
+}//Fin de Ejemplo_4

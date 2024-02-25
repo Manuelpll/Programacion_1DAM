@@ -1,8 +1,6 @@
 package Tema_7_Manejo_de_Excepciones;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 /**
  * Tratando más excepciones
  * @author Mparll

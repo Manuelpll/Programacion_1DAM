@@ -1,9 +1,8 @@
 package Practicas_Obligatorias.Practica_Evaluable_Tema_6_Parra_Llansó_Manuel.actividad_2;
-
 import java.util.Arrays;
 import java.util.Scanner;
-
 /**
+ * Este programa trata de un menu donde eliges el mes que quieres y te dice las temperaturas maximas,minimas y medias de cada día
  * @author Mparr
  * @version 1.0
  * @date 15/02/2024

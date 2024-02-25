@@ -1,5 +1,4 @@
 package Practicas_Obligatorias.Practica_Evaluable_Tema_6_Parra_Llansó_Manuel.actividad_2;
-
 /**
  * Clase Tempetarura
  * @author  Mparr

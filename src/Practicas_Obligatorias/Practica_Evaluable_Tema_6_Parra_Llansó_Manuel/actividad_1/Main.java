@@ -1,8 +1,11 @@
 package Practicas_Obligatorias.Practica_Evaluable_Tema_6_Parra_Llansó_Manuel.actividad_1;
-
-
 import javax.swing.*;
-
+/**
+ * Este es una aplicacion para la manipulacion de cadenas de caracteres
+ * @author Mparr
+ * @version 1.0
+ * @date 18/02/2024
+ */
 public class Main {
     public static  void manipulacionDeCadenasDeCaracteres(){
         Cadena cadena =new  Cadena(" ");

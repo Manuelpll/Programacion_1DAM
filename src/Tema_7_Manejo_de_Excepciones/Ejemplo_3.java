@@ -1,13 +1,13 @@
 package Tema_7_Manejo_de_Excepciones;
-
 /**
- * Ejemplo de manejo de la excepcion ArrayIndexOutofBounsExcepcion
+ * Ejemplo de manejo de la excepcion ArrayIndexOutOfBounsExcepcion
+ * @author Mparr
  */
 public class Ejemplo_3 {
     public static void main(String[] args) {
         int i;
         boolean fueradelimite=true;
-        String texto[] = {"uno", "dos", "tres", "cuatro", "cinco"};
+        String[] texto = {"uno", "dos", "tres", "cuatro", "cinco"};
         while (fueradelimite){
             try {
                 i=(int)Math.round((Math.random()*9));

@@ -1,6 +1,9 @@
 package Tema_7_Manejo_de_Excepciones;
-
-public class Ejemplo_2B {
+/**
+ * Primera excepcion personalizada creada
+ * @author Mparr
+ */
+public class Ejemplo_2B_Solucion_de_Division_Imposible {
     static final int CONSTANTE=5;
 
     public static int divide (int dividendo, int divisor) {
@@ -20,7 +23,6 @@ public class Ejemplo_2B {
         }catch(IllegalArgumentException e3)  {
             e3.printStackTrace();
             System.out.println("Error: "+e3.getMessage());
-        }
-
-    }
-}
+        }//Fin del try-catch
+    }//Fin del main
+}//Fin del codigo

@@ -1,8 +1,9 @@
 package Tema_7_Manejo_de_Excepciones;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+/**
+ * Haga el Ejemplo 4 más especifico
+ */
 public class Ejercicio_4B {
     public static void main(String[] args) {
         int intentos=0;
@@ -28,8 +29,8 @@ public class Ejercicio_4B {
                 operacion = false;
             } finally {
                 intentos++;
-            }
-        }
+            }//Fin del try-catch-finally
+        }//Fin de while
         operacion=false;
         while (!operacion){
             try {
@@ -40,7 +41,7 @@ public class Ejercicio_4B {
                 }else{
                     resultado=(double) numero1/ (double)  numero2;
                     operacion=true;
-                }
+                }//Fin del if-else
             }catch (InputMismatchException e) {
                 System.out.println("Debe de ser entero");
                 operacion=false;
@@ -50,11 +51,11 @@ public class Ejercicio_4B {
             }finally {
                 {
                     intentos++;
-                }
-            }
-        }
+                }//Fin del finally
+            }//Fin del try-catch-finally
+        }//Fin del while
 
         System.out.println("Este es el resultado " + resultado+"\nEl numero de intentos es"+intentos);
         scanner.close();
-    }
-}
+    }//Fin del main
+}//Fin de Ejercicio_4B

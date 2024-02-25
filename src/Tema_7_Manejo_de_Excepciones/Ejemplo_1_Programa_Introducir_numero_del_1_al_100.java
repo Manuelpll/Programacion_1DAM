@@ -6,14 +6,12 @@ import java.io.*;
  * un número entre 0 y 100, debiendo gestionarse la entrada
  * por medio de excepciones.
  */
-
 public class Ejemplo_1_Programa_Introducir_numero_del_1_al_100 {
     public static void main(String[] args){
         int numero=-1;
         int intentos=0;
         String linea;
-
-        BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in)); //Forma antigua de pedir valores al usuario
 
         do{
             try{
@@ -29,12 +27,11 @@ public class Ejemplo_1_Programa_Introducir_numero_del_1_al_100 {
 
             }finally{
                 intentos++;
-            }
-        }while (numero < 0 || numero > 100);
+            }//Fin del try-catch-finally
+        }while (numero < 0 || numero > 100);//Fin del do-while
 
         System.out.println("El número introducido es: " + numero);
         System.out.println("Número de intentos: " + intentos);
 
-    }
-
-}
+    }//Fin del main
+}//Fin de Ejemplo_1_Programa_Introducir_numero_del_1_al_100
