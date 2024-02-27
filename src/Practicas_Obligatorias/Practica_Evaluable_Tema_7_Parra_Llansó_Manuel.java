@@ -7,7 +7,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
  * Este programa trata de un menu donde eliges el mes que quieres y te dice las temperaturas maximas,minimas y medias de cada día
- * ahora corrige las excepciones que daría si no utili
+ * ahora corrige las excepciones
  * @author Mparr
  * @version 1.5
  * @date 27/02/2024
