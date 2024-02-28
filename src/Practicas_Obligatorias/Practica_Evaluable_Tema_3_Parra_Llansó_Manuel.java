@@ -6,7 +6,7 @@ package Practicas_Obligatorias;
  * @date 26/11/2023
  */
 import java.util.Scanner;
-public class Practica_Obligatoria_Tema_3_Parra_Llansó_Manuel {
+public class Practica_Evaluable_Tema_3_Parra_Llansó_Manuel {
 //Creamos el proceso del menu
     public static int menuprincipal(int eleccion){
        Scanner teclado= new Scanner (System.in);

@@ -66,7 +66,6 @@ public  String eliminarVocales(String cadena){
 }//Fin eliminarVocales
 
 private  boolean esVocal(char j){
-        j= Character.toLowerCase(j);
-        return j == 'a' || j == 'e' || j== 'i' || j == 'o' || j == 'u';
+        return j == 'a' || j == 'e' || j== 'i' || j == 'o' || j == 'u'|| j== 'A' || j == 'E' || j == 'I'|| j=='O'||j=='U'||j=='á'|| j=='í'|| j=='ó'||j=='ú'||j=='Á'||j =='É'||j =='Í'||j =='Ó'||j =='Ú';
 }//Fin de esVocal
 }//Fin de la clase cadena
