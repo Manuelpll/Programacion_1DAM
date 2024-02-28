@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"Tema_2_Primeros_programas","l":"Ejemplo04_Calculo_del_Area_Rectangulo"}];updateSearchResults();
