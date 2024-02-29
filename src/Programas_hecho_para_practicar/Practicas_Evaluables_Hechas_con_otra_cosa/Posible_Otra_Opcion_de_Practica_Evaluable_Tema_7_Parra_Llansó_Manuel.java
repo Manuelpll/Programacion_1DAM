@@ -1,7 +1,6 @@
-package Practicas_Obligatorias;
+package Programas_hecho_para_practicar.Practicas_Evaluables_Hechas_con_otra_cosa;
 import Practicas_Obligatorias.Practica_Evaluable_Tema_6_Parra_Llansó_Manuel.actividad_2.Temperatura;
 
-import javax.swing.*;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -12,7 +11,7 @@ import java.util.Scanner;
  * @version 1.5
  * @date 27/02/2024
  */
-public class Practica_Evaluable_Tema_7_Parra_Llansó_Manuel {
+public class Posible_Otra_Opcion_de_Practica_Evaluable_Tema_7_Parra_Llansó_Manuel {
         public static void elegirTemperatura(String enero, String febrero, Temperatura[][] temperaturasEne, Temperatura[][] temperaturasFeb) {
             Scanner scanner2 = new Scanner(System.in);
             System.out.println("¿Que mes quieres ver?");
