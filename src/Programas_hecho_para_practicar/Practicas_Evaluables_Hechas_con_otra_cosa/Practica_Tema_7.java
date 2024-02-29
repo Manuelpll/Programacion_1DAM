@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @version 1.5
  * @date 27/02/2024
  */
-public class Posible_Otra_Opcion_de_Practica_Evaluable_Tema_7_Parra_Llansó_Manuel {
+public class Practica_Tema_7 {
         public static void elegirTemperatura(String enero, String febrero, Temperatura[][] temperaturasEne, Temperatura[][] temperaturasFeb) {
             Scanner scanner2 = new Scanner(System.in);
             System.out.println("¿Que mes quieres ver?");
