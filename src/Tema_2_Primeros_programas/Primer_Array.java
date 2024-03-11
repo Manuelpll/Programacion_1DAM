@@ -1,5 +1,7 @@
 package Tema_2_Primeros_programas;
-//Primer ejemplo de arrays
+/**
+ * Primer ejemplo de arrays
+ */
 public class Primer_Array {
     public static void main(String[] args){
         int[]array1;

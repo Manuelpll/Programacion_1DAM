@@ -6,7 +6,10 @@ import java.util.Scanner;
  * @author Mparr
  */
 public class Tema2_Explicacion_de_como_redondear {
-
+	/**
+	 * Metodo que ejecuta el codigo
+	 * @param args Los argumentos de la linea de comandos
+	 */
   public static void main(String[] args){
 		double numero = 0;
 		Scanner teclado = new Scanner(System.in);
@@ -21,6 +24,6 @@ public class Tema2_Explicacion_de_como_redondear {
 		System.out.println("El numero entero es: "+x);
 		System.out.println("El numero ceil es: "+y);
 		System.out.println("El floor es: "+z);
-    }
+    }//Fin de main
     
-}
+}//Fin de explicacion de como redondear

@@ -1,8 +1,10 @@
 package Tema_2_Primeros_programas;
-/*
-+Lista con arrays del orden de planetas de nuestro sistema solar
- */
 import java.util.Scanner;
+/**
+ *  Imprime una lista de los planetas del sistema solar
+ * @author Mparr
+ */
+
 
 public class Ejercicio08_Lista_de_planetas_con_arrays {
     public static void main (String[] args){
