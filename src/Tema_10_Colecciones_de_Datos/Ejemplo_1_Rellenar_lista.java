@@ -1,4 +1,4 @@
-package Tema_10_de_Datos;
+package Tema_10_Colecciones_de_Datos;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * Programa que explica como se rellena un map y una coleccion
  * @author Mparr
  */
-public class Ejemplo_1_Rellenar_lista {
+public class  Ejemplo_1_Rellenar_lista {
     static Collection rellenar (Collection c){
         c.add("perro");
         c.add("gato");
@@ -22,7 +22,6 @@ public class Ejemplo_1_Rellenar_lista {
         System.out.println("La longitud del Map: "+m.size());
         return  m;
     }//Fin del mapa
-
     public static void main(String[] args) {
         System.out.println("ArrayList"+rellenar(new ArrayList()));//Devuelve todos los elementod por orden de inserción
         System.out.println("HashSet"+rellenar(new HashSet()));//devuelve elmentos no repetidos
