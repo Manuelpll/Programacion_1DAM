@@ -3,6 +3,7 @@ import java.util.Scanner;
 /**
  * Plantilla para hacer un menu numerico
  * @author Mparr
+ * @version 1.0
  */
 public class Plantillla_Menu_Numerico {
         public static void menu() {
