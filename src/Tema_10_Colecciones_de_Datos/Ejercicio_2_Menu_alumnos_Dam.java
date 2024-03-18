@@ -98,7 +98,7 @@ public class Ejercicio_2_Menu_alumnos_Dam {
      */
     static void ordenarPorApellidos() {
         //Fin de compare
-        Collections.sort(alumnosDam, (s1, s2) -> {
+        alumnosDam.sort((s1, s2) -> {
             String[] apellidos1 = s1.split(" ");
             String[] apellidos2 = s2.split(" ");
             return apellidos1[apellidos1.length - 1].compareTo(apellidos2[apellidos2.length - 1]);
