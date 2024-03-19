@@ -123,13 +123,8 @@ public class Ejercicio_2_Menu_alumnos_Dam {
      * @param nombreEstudiante El nombre del estudiante que deseas agregar
      */
     static void agregarEstudiante(String nombreEstudiante) {
-        if (alumnosDam.contains(nombreEstudiante)){
-            System.out.println("Ya existe ese estudiante");
-        }else{
             alumnosDam.add(nombreEstudiante);
-        }//Fin if-else
     }//Fin agregarEstudiante
-
     /**
      * Metodo que agrega los estudiantes que estan inicialmente en la lista
      */
