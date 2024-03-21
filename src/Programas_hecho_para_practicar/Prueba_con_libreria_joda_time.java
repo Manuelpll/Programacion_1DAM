@@ -4,7 +4,15 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
+
+/**
+ * Explicacion de la libreria java.time
+ */
 public class Prueba_con_libreria_joda_time {
+    /**
+     * Metodo que ejecuta el codigo
+     * @param args Los argumentos de la linea de comandos
+     */
     public static void main(String[] args) {
             System.out.println("Fecha del Día de Hoy ----->" +LocalDate.now());
         System.out.println("Hora Actual-------------------->"+LocalTime.now());
@@ -55,7 +63,7 @@ public class Prueba_con_libreria_joda_time {
         LocalDate hoy =LocalDate.now();
         LocalDate finAnio = hoy.with(TemporalAdjusters.lastDayOfYear());
         Period hastafindeAnio =hoy.until(finAnio);
-        int meses = finAnio.getMonthValue();
+        int meses = hastafindeAnio.getMonths();
         int dias= hastafindeAnio.getDays();
         System.out.println("Faltan "+meses+" Meses "+dias+" días hasta final de año");
 
