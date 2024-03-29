@@ -24,7 +24,7 @@ public class Prueba_con_libreria_joda_time {
         System.out.println("Hora exacta ------------>"+LocalDateTime.of(1990,Month.DECEMBER,24,20,
                 01,15,0017));
         //Provocando un error
-        System.out.println("Periodo Bisiesto de 2019 "+LocalDate.of(2020,Month.FEBRUARY,29));
+        System.out.println("Periodo Bisiesto de 2019 "+LocalDate.of(2020,Month.FEBRUARY,31));
 
         System.out.println("Dia Actual  ...:"+LocalDate.now().getDayOfMonth());
         System.out.println("Mes actual  ...:"+LocalDate.now().getMonth()+" "+LocalDate.now().getMonthValue());
