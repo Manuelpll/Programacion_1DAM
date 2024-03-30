@@ -1,12 +1,11 @@
 package Practicas_Obligatorias.Practica_Evaluable_Tema_10_Parra_Llansó_Manuel;
 
+import Tema_10_Colecciones_de_Datos.Ejercicio_3_Menu_alumnos_con_Objetos.Alumnos;
 
 import javax.swing.*;
 import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Este programa trata de un menu de los empleados donde puedes añadir,eliminar , mostrar los que hay y ordenar la lista de diferentes maneras
@@ -54,7 +53,7 @@ public class Main {
                         menuDeOrdenar(scanner);
                         break;
                     case 5:
-                        System.out.println("Funcion 5");
+                       gastoTotal();
                         break;
                     case 6:
                         System.out.println("Saliendo...");
@@ -71,6 +70,11 @@ public class Main {
         } while (!salir);
     }//Fin de menu
 
+    /**
+     * Este metodo busca a un empleado por su nombre
+     * @param scanner -El scanner que se necesita para recibir los imputs
+     * @throws InputMismatchException Si se pone otra cosa que no sea una cadena de carácteres
+     */
     public static void buscarEmpleado(Scanner scanner) {
         try {
             System.out.println("Cual empleado quieres imprimir?");
@@ -79,17 +83,22 @@ public class Main {
             for (Empleado empleado : empleados) {
                 if (empleado.getNombre().equals(empleadoQuerido)) {
                     System.out.println(empleado);
+                    empleadoConseguido= true;
                     break;
-                }
-            }
+                }//Fin de if
+            }//Fin de for
             if (!empleadoConseguido) {
                 System.out.println("No se encontró ese empleado");
-            }
+            }//Fin if
         }catch (InputMismatchException e){
             System.out.println("ERROR: No se puede poner una cosa que no sea una cadena de carateres");
-        }
-    }
+        }//Fin try-catch
+    }//Fin de buscarEmpleado
 
+    /**
+     * Este metodo elimina un empleado que se desee
+     * @param scanner -El scanner que se necesita para los inputs
+     */
     public static void eliminarEmpleado(Scanner scanner) {
         try {
             System.out.println("Introduce el nombre del empleado que deseas eliminar");
@@ -108,17 +117,18 @@ public class Main {
                 System.out.println("No se encontró ese empleado");
             }
         } catch (InputMismatchException e) {
-            System.out.println("Error: No se puede ingresar algo que no sea una cadena de caracteres");
+            System.out.println("Error: No se puede ingresar algo que no sea una cadena de carácteres");
             scanner.nextLine();
         }
     }
 
     /**
      * Menu que genera varias opciones para ordenar el arraylist
-     * @param scanner El scanner para introducir la opcion
+     * @param scanner -El scanner para introducir la opcion
      */
     public static void menuDeOrdenar(Scanner scanner) {
         try {
+            int enumeracion= 1;
             System.out.println("""
                     1-> Por antiguedad
                     2-> Por salario
@@ -127,10 +137,49 @@ public class Main {
             scanner.nextLine();
             switch (eleccion) {
                 case 1:
+                    empleados.sort(new Comparator<Empleado>() {
+                        @Override
+                        public int compare(Empleado a1, Empleado a2) {
+                            return a1.getFechaDeIngreso().compareTo(a2.getFechaDeIngreso());
+                        }//Fin de compare
+                    });//Fin Iterator
+                    System.out.println("Lista ordenada por antiguedad:");
+                    for(Empleado empleadosTemp : empleados){
+                        System.out.println(enumeracion+"-"+empleadosTemp.getNombre()+" "+empleadosTemp.getApellidos()+"  Fecha de nacimiento: "+empleadosTemp.getFechaDeNacimiento()+"  Fecha de ingreso"+empleadosTemp.getFechaDeIngreso()+"  Puesto de trabajo: "+empleadosTemp.getPuesto()+"  Salario: "+ empleadosTemp.getSalario());
+                        enumeracion++;
+                    }//Fin for
+                    enumeracion =1;
+                    System.out.println(" ");
                     break;
                 case 2:
+                    empleados.sort(new Comparator<Empleado>() {
+                        @Override
+                        public int compare(Empleado a1, Empleado a2) {
+                            return Integer.compare(a1.getSalario(), a2.getSalario());
+                        }//Fin de compare
+                    });//Fin Iterator
+                    System.out.println("Lista ordenada por salario:");
+                    for(Empleado empleadosTemp : empleados){
+                        System.out.println(enumeracion+"-"+empleadosTemp.getNombre()+" "+empleadosTemp.getApellidos()+"  Fecha de nacimiento: "+empleadosTemp.getFechaDeNacimiento()+"  Fecha de ingreso"+empleadosTemp.getFechaDeIngreso()+"  Puesto de trabajo: "+empleadosTemp.getPuesto()+"  Salario: "+ empleadosTemp.getSalario());
+                        enumeracion++;
+                    }//Fin for
+                    enumeracion =1;
+                    System.out.println(" ");
                     break;
                 case 3:
+                    empleados.sort(new Comparator<Empleado>() {
+                        @Override
+                        public int compare(Empleado a1, Empleado a2) {
+                            return a1.getApellidos().compareTo(a2.getApellidos());
+                        }//Fin de compare
+                    });//Fin Iterator
+                    System.out.println("Lista ordenada por apellidos:");
+                    for(Empleado empleadosTemp : empleados){
+                        System.out.println(enumeracion+"-"+empleadosTemp.getNombre()+" "+empleadosTemp.getApellidos()+"  Fecha de nacimiento: "+empleadosTemp.getFechaDeNacimiento()+"  Fecha de ingreso: "+empleadosTemp.getFechaDeIngreso()+"  Puesto de trabajo: "+empleadosTemp.getPuesto()+"  Salario: "+ empleadosTemp.getSalario());
+                        enumeracion++;
+                    }//Fin for
+                    enumeracion =1;
+                    System.out.println(" ");
                     break;
                 default:
                     System.out.println("Error: Opcion no valida");
@@ -139,6 +188,13 @@ public class Main {
             System.out.println("Inserte una de la opciones validas");
         }//Fin del try-catch
     }//Fin de menuDeOrdenar
+
+    /**
+     * Este metodo añade un empleado nuevo a el arraylist
+     * @param scanner -El scanner que se necesita para insertar los datos
+     * @throws InputMismatchException Si se pone un input inadecuado
+     * @throws DateTimeException Si se pone una fecha imposible
+     */
     public static void añadirEmpleado(Scanner scanner) {
         String nombre ;
         String apellidos ;
@@ -149,7 +205,7 @@ public class Main {
         int mesI = 0;
         int diaI = 0;
         String puesto = "";
-        double salario = 0.0;
+        int salario = 0;
         LocalDate fechaDeIngreso;
         LocalDate fechaDeNacimiento;
         try {
@@ -239,7 +295,7 @@ public class Main {
         }//Fin try-catch
         try {
             System.out.println("Introduce tu salario");
-            salario =scanner.nextDouble();
+            salario =scanner.nextInt();
         }catch (InputMismatchException e){
             System.out.println("No puedes poner otra cosa que no sea un numero");
             scanner.nextLine();
@@ -247,8 +303,37 @@ public class Main {
         }//Fin try-catch
         Empleado empleadoNuevo = new Empleado(nombre, apellidos, fechaDeNacimiento, fechaDeIngreso, puesto, salario);
         empleados.add(empleadoNuevo);
-    }//Fin de añadirEnpleado
+    }//Fin de añadirEmpleado
+
+    public static void gastoTotal(){
+        int total=0;
+        for(Empleado empleadosTemp : empleados){
+           total+= empleadosTemp.getSalario();
+        }//Fin for
+        System.out.println("El gasto total es: "+total);
+    }//Fin de gastoTotal
+    /**
+     * Metodo que inserta los primeros empleados
+     */
+    public static void empleadosBase(){
+        Empleado empleado1 = new Empleado("Juan","Torres",LocalDate.parse("1960-01-01"),LocalDate.parse("1980-05-24"),"Jefe",60000);
+        Empleado empleado2 = new Empleado("Sara","Gonzalez",LocalDate.parse("1980-05-02"),LocalDate.parse("1999-06-03"),"Secretaria",25000);
+        Empleado empleado3 = new Empleado("Elena","Sanchez",LocalDate.parse("2010-11-02"),LocalDate.parse("2010-11-02"),"TecnicoFP",30000);
+        Empleado empleado4 = new Empleado("Pepe","Uriel",LocalDate.parse("1991-10-04"),LocalDate.parse("2015-10-01"),"Administrativo",24000);
+        Empleado empleado5 = new Empleado("Manuel","Parra",LocalDate.parse("2004-10-31"),LocalDate.parse("2026-04-15"),"TecnicoFP",26000);
+        empleados.add(empleado1);
+        empleados.add(empleado2);
+        empleados.add(empleado3);
+        empleados.add(empleado4);
+        empleados.add(empleado5);
+}//Fin de empleadosBase
+
+    /**
+     * Metodo que ejecuta el codigo
+     * @param args Los argumentos de la linea de comandos
+     */
     public static void main(String[] args) {
+        empleadosBase();
         menu();
     }//Fin del main
 }//Fin de Main

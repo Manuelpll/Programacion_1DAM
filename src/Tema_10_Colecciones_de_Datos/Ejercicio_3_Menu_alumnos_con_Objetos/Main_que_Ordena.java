@@ -1,7 +1,5 @@
 package Tema_10_Colecciones_de_Datos.Ejercicio_3_Menu_alumnos_con_Objetos;
 
-import Practicas_Obligatorias.Practica_Evaluable_Tema_6_Parra_Llansó_Manuel.actividad_3.Alumno_Clase;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,7 +9,7 @@ import java.util.Iterator;
  * Main de la clase Alumnos
  * @author Mparr
  */
-public class Main {
+public class Main_que_Ordena {
     /**
      * Metodo que ejecuta el codigo
      * @param args Los argumentos de la linea de comandos
@@ -68,6 +66,8 @@ public class Main {
         for(Alumnos alumnoTemp : alumnosDaw){ //Otra forma de recorrer la lista de objetos sin utilizar el Itinerator
             System.out.print(alumnoTemp.getApellido()+",");
             System.out.print(alumnoTemp.getNombre()+".\n");
+
+            //Para ordenar datos tipos Integer se utiliza el Integer.compare(primer dato,segundo dato)
         }//Fin for
     }//Fin main
 }//Fin del Main

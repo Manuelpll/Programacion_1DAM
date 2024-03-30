@@ -12,7 +12,7 @@ public class Empleado {
  private LocalDate fechaDeNacimiento;
  private LocalDate fechaDeIngreso;
  private String puesto;
- private double salario;
+ private int salario;
 
     /**
      * Metodo constructor vacio
@@ -28,7 +28,7 @@ public class Empleado {
      * @param puesto El puesto actual del empleado
      * @param salario El salario que cobra el empleado
      */
- public Empleado(String nombre,String apellidos,LocalDate fechaDeNacimiento,LocalDate fechaDeIngreso, String puesto ,double salario){
+ public Empleado(String nombre,String apellidos,LocalDate fechaDeNacimiento,LocalDate fechaDeIngreso, String puesto ,int salario){
      this.nombre=nombre;
      this.apellidos=apellidos;
      this.fechaDeNacimiento=fechaDeNacimiento;
@@ -96,7 +96,7 @@ public class Empleado {
      * Metodo get para utilizar el salario
      * @return salario del empleado
      */
-    public double getSalario() {
+    public int getSalario() {
         return salario;
     }//Fin de getSalario
     /**
@@ -139,7 +139,7 @@ public class Empleado {
         sb.append(nombre);
         sb.append("\nApellidos: ");
         sb.append(apellidos);
-        sb.append("\nFecha de Nacimiento:");
+        sb.append("\nFecha de Nacimiento: ");
         sb.append(fechaDeNacimiento);
         sb.append("\nFecha de Ingreso: ");
         sb.append(fechaDeIngreso);
