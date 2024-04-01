@@ -1,7 +1,4 @@
 package Practicas_Obligatorias.Practica_Evaluable_Tema_10_Parra_Llansó_Manuel;
-
-import Tema_10_Colecciones_de_Datos.Ejercicio_3_Menu_alumnos_con_Objetos.Alumnos;
-
 import javax.swing.*;
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -13,191 +10,159 @@ import java.util.*;
  * @version 1.0
  */
 public class Main {
-     static ArrayList<Empleado> empleados = new ArrayList<Empleado>();
-   static int eleccion;
+    static ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+    static int eleccion;
+
     /**
      * Metodo que genera un menu de las diferentes opciones que tienes para utilizar
      * @throws InputMismatchException Si pones una cosa que no sea un numero entero
      */
     public static void menu() {
-        //Zona de declaracion de variables
-        boolean salir =false;
-        //Zona de inicializacion , añadir más cosas si es necesario
-        Scanner scanner = new Scanner(System.in);
-        //Zona de salida
+        boolean salir = false;
         do {
             try {
-
-
-                System.out.println("""
-                        Elige una de las siguientes opciones:
-                        1-> Añadir empleado
-                        2-> Eliminar empleado
-                        3-> Buscar empleado
-                        4-> Imprimir empleados ordenados de diferentes maneras
-                        5-> Calcular el gasto total de los empleados
-                        6-> Salir""");
-                eleccion = scanner.nextInt();
-                scanner.nextLine();//Si es necesario se pone
+                String[] options = {"Añadir empleado", "Eliminar empleado", "Buscar empleado", "Imprimir empleados ordenados", "Calcular gasto total", "Salir"};
+                eleccion = JOptionPane.showOptionDialog(null, "Elige una de las siguientes opciones:", "Menú", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]) + 1;
                 switch (eleccion) {
                     case 1:
-                       añadirEmpleado(scanner);
+                        añadirEmpleado();
                         break;
                     case 2:
-                        eliminarEmpleado(scanner);
+                        eliminarEmpleado();
                         break;
                     case 3:
-                        buscarEmpleado(scanner);
+                        buscarEmpleado();
                         break;
                     case 4:
-                        menuDeOrdenar(scanner);
+                        menuDeOrdenar();
                         break;
                     case 5:
-                       gastoTotal();
+                        gastoTotal();
                         break;
                     case 6:
-                        System.out.println("Saliendo...");
+                        JOptionPane.showMessageDialog(null, "Saliendo...");
                         salir = true;
                         break;
                     default:
-                        System.out.println("Error: Opcion no valida");
+                        JOptionPane.showMessageDialog(null, "Error: Opción no válida");
                         break;
                 }//Fin switch
-            }catch (InputMismatchException e){
-                System.out.println("Inserta una de las opciones validas");
-                scanner.nextLine();
+            } catch (InputMismatchException e) {
+                JOptionPane.showMessageDialog(null, "Inserta una de las opciones válidas");
             }//Fin try-catch
         } while (!salir);
-    }//Fin de menu
+    } // Fin de menu
 
     /**
      * Este metodo busca a un empleado por su nombre
-     * @param scanner -El scanner que se necesita para recibir los imputs
      * @throws InputMismatchException Si se pone otra cosa que no sea una cadena de carácteres
      */
-    public static void buscarEmpleado(Scanner scanner) {
+    public static void buscarEmpleado() {
         try {
-            System.out.println("Cual empleado quieres imprimir?");
-            String empleadoQuerido = scanner.nextLine();
+            String empleadoQuerido = JOptionPane.showInputDialog("¿Qué empleado quieres buscar?");
             boolean empleadoConseguido = false;
             for (Empleado empleado : empleados) {
                 if (empleado.getNombre().equals(empleadoQuerido)) {
-                    System.out.println(empleado);
-                    empleadoConseguido= true;
+                    JOptionPane.showMessageDialog(null, empleado);
+                    empleadoConseguido = true;
                     break;
-                }//Fin de if
-            }//Fin de for
+                }//Fin if
+            }//Fin for
             if (!empleadoConseguido) {
-                System.out.println("No se encontró ese empleado");
+                JOptionPane.showMessageDialog(null, "No se encontró ese empleado");
             }//Fin if
-        }catch (InputMismatchException e){
-            System.out.println("ERROR: No se puede poner una cosa que no sea una cadena de carateres");
+        } catch (InputMismatchException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: No se puede poner algo que no sea una cadena de caracteres");
         }//Fin try-catch
-    }//Fin de buscarEmpleado
+    } // Fin de buscarEmpleado
 
     /**
      * Este metodo elimina un empleado que se desee
-     * @param scanner -El scanner que se necesita para los inputs
+     * @throws InputMismatchException Si se pone un input incorrecto
      */
-    public static void eliminarEmpleado(Scanner scanner) {
+    public static void eliminarEmpleado() {
         try {
-            System.out.println("Introduce el nombre del empleado que deseas eliminar");
-            String nombreElim = scanner.nextLine();
+            String nombreElim = JOptionPane.showInputDialog("Introduce el nombre del empleado que deseas eliminar");
             boolean empleadoEncontrado = false;
             for (Empleado empleado : empleados) {
                 if (empleado.getNombre().equals(nombreElim)) {
                     empleados.remove(empleado);
                     empleadoEncontrado = true;
-                    System.out.println(nombreElim+" ha sido eliminado");
+                    JOptionPane.showMessageDialog(null, nombreElim + " ha sido eliminado");
                     break;
-                }
-            }
-
+                }//Fin if
+            }//Fin for
             if (!empleadoEncontrado) {
-                System.out.println("No se encontró ese empleado");
-            }
+                JOptionPane.showMessageDialog(null, "No se encontró ese empleado");
+            }//Fin if
         } catch (InputMismatchException e) {
-            System.out.println("Error: No se puede ingresar algo que no sea una cadena de carácteres");
-            scanner.nextLine();
-        }
-    }
+            JOptionPane.showMessageDialog(null, "Error: No se puede ingresar algo que no sea una cadena de caracteres");
+        }//Fin try-catch
+    } // Fin de eliminarEmpleado
 
     /**
      * Menu que genera varias opciones para ordenar el arraylist
-     * @param scanner -El scanner para introducir la opcion
      */
-    public static void menuDeOrdenar(Scanner scanner) {
+    public static void menuDeOrdenar() {
         try {
-            int enumeracion= 1;
-            System.out.println("""
-                    1-> Por antiguedad
-                    2-> Por salario
-                    3-> Por Apellido""");
-            eleccion = scanner.nextInt();
-            scanner.nextLine();
+            int enumeracion = 1;
+            String informacionFinal = " ";
+            String[] options = {"Por antigüedad", "Por salario", "Por apellido"};
+            eleccion = JOptionPane.showOptionDialog(null, "Elige una opción para ordenar la lista:", "Ordenar Lista", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]) + 1;
             switch (eleccion) {
                 case 1:
-                    empleados.sort(new Comparator<Empleado>() {
-                        @Override
-                        public int compare(Empleado a1, Empleado a2) {
-                            return a1.getFechaDeIngreso().compareTo(a2.getFechaDeIngreso());
-                        }//Fin de compare
-                    });//Fin Iterator
-                    System.out.println("Lista ordenada por antiguedad:");
-                    for(Empleado empleadosTemp : empleados){
-                        System.out.println(enumeracion+"-"+empleadosTemp.getNombre()+" "+empleadosTemp.getApellidos()+"  Fecha de nacimiento: "+empleadosTemp.getFechaDeNacimiento()+"  Fecha de ingreso"+empleadosTemp.getFechaDeIngreso()+"  Puesto de trabajo: "+empleadosTemp.getPuesto()+"  Salario: "+ empleadosTemp.getSalario());
+                    empleados.sort(Comparator.comparing(Empleado::getFechaDeIngreso));
+                    for (Empleado empleadosTemp : empleados) {
+                        informacionFinal += enumeracion + "-" + empleadosTemp.getNombre() + " " + empleadosTemp.getApellidos() + "  Fecha de nacimiento: " + empleadosTemp.getFechaDeNacimiento() + "  Fecha de ingreso: " + empleadosTemp.getFechaDeIngreso() + "  Puesto de trabajo: " + empleadosTemp.getPuesto() + "  Salario: " + empleadosTemp.getSalario()+"€";
+                        informacionFinal += "\n";
                         enumeracion++;
                     }//Fin for
-                    enumeracion =1;
+                    JOptionPane.showMessageDialog(null, informacionFinal);
+                    enumeracion = 1;
+                    informacionFinal += " ";
                     System.out.println(" ");
                     break;
                 case 2:
-                    empleados.sort(new Comparator<Empleado>() {
-                        @Override
-                        public int compare(Empleado a1, Empleado a2) {
-                            return Integer.compare(a1.getSalario(), a2.getSalario());
-                        }//Fin de compare
-                    });//Fin Iterator
-                    System.out.println("Lista ordenada por salario:");
-                    for(Empleado empleadosTemp : empleados){
-                        System.out.println(enumeracion+"-"+empleadosTemp.getNombre()+" "+empleadosTemp.getApellidos()+"  Fecha de nacimiento: "+empleadosTemp.getFechaDeNacimiento()+"  Fecha de ingreso"+empleadosTemp.getFechaDeIngreso()+"  Puesto de trabajo: "+empleadosTemp.getPuesto()+"  Salario: "+ empleadosTemp.getSalario());
+                    empleados.sort(Comparator.comparingInt(Empleado::getSalario));
+                    for (Empleado empleadosTemp : empleados) {
+                        informacionFinal += enumeracion + "-" + empleadosTemp.getNombre() + " " + empleadosTemp.getApellidos() + "  Fecha de nacimiento: " + empleadosTemp.getFechaDeNacimiento() + "  Fecha de ingreso: " + empleadosTemp.getFechaDeIngreso() + "  Puesto de trabajo: " + empleadosTemp.getPuesto() + "  Salario: " + empleadosTemp.getSalario()+"€";
+                        informacionFinal += "\n";
                         enumeracion++;
                     }//Fin for
-                    enumeracion =1;
+                    JOptionPane.showMessageDialog(null, informacionFinal);
+                    enumeracion = 1;
+                    informacionFinal += " ";
                     System.out.println(" ");
                     break;
                 case 3:
-                    empleados.sort(new Comparator<Empleado>() {
-                        @Override
-                        public int compare(Empleado a1, Empleado a2) {
-                            return a1.getApellidos().compareTo(a2.getApellidos());
-                        }//Fin de compare
-                    });//Fin Iterator
-                    System.out.println("Lista ordenada por apellidos:");
-                    for(Empleado empleadosTemp : empleados){
-                        System.out.println(enumeracion+"-"+empleadosTemp.getNombre()+" "+empleadosTemp.getApellidos()+"  Fecha de nacimiento: "+empleadosTemp.getFechaDeNacimiento()+"  Fecha de ingreso: "+empleadosTemp.getFechaDeIngreso()+"  Puesto de trabajo: "+empleadosTemp.getPuesto()+"  Salario: "+ empleadosTemp.getSalario());
+                    empleados.sort(Comparator.comparing(Empleado::getApellidos));
+                    for (Empleado empleadosTemp : empleados) {
+                        informacionFinal += enumeracion + "-" + empleadosTemp.getNombre() + " " + empleadosTemp.getApellidos() + "  Fecha de nacimiento: " + empleadosTemp.getFechaDeNacimiento() + "  Fecha de ingreso: " + empleadosTemp.getFechaDeIngreso() + "  Puesto de trabajo: " + empleadosTemp.getPuesto() + "  Salario: " + empleadosTemp.getSalario()+"€";
+                        informacionFinal += "\n";
                         enumeracion++;
                     }//Fin for
-                    enumeracion =1;
+                    JOptionPane.showMessageDialog(null, informacionFinal);
+                    enumeracion = 1;
+                    informacionFinal += " ";
                     System.out.println(" ");
                     break;
                 default:
-                    System.out.println("Error: Opcion no valida");
+                    JOptionPane.showMessageDialog(null, "Error: Opción no válida");
+                    break;
             }//Fin switch
-        }catch (InputMismatchException e2){
-            System.out.println("Inserte una de la opciones validas");
-        }//Fin del try-catch
-    }//Fin de menuDeOrdenar
+        } catch (InputMismatchException e2) {
+            JOptionPane.showMessageDialog(null, "Inserta una de las opciones válidas");
+        }//Fin try-catch
+    } // Fin de menuDeOrdenar
 
     /**
      * Este metodo añade un empleado nuevo a el arraylist
-     * @param scanner -El scanner que se necesita para insertar los datos
      * @throws InputMismatchException Si se pone un input inadecuado
      * @throws DateTimeException Si se pone una fecha imposible
      */
-    public static void añadirEmpleado(Scanner scanner) {
-        String nombre ;
-        String apellidos ;
+    public static void añadirEmpleado() {
+        String nombre;
+        String apellidos;
         int año = 0;
         int mes = 0;
         int dia = 0;
@@ -209,124 +174,107 @@ public class Main {
         LocalDate fechaDeIngreso;
         LocalDate fechaDeNacimiento;
         try {
-            System.out.println("Introduce el nombre del empleado");
-          nombre = scanner.nextLine();
-        }catch (InputMismatchException e){
-            System.out.println("Error no puedes poner otra cosa que no sea un nombre ");
-            scanner.nextLine();
+            nombre = JOptionPane.showInputDialog("Introduce el nombre del empleado");
+        } catch (InputMismatchException e) {
+            JOptionPane.showMessageDialog(null, "Error: no puedes poner otra cosa que no sea un nombre");
             return;
         }//Fin try-catch
         try {
-            System.out.println("Introduce los apellidos del empleado");
-           apellidos=scanner.nextLine();
-        }catch (InputMismatchException e){
-            System.out.println("Error no puedes poner otra cosa que no sea un nombre ");
-            scanner.nextLine();
+            apellidos = JOptionPane.showInputDialog("Introduce los apellidos del empleado");
+        } catch (InputMismatchException e) {
+            JOptionPane.showMessageDialog(null, "Error: no puedes poner otra cosa que no sea un nombre");
             return;
         }//Fin try-catch
         try {
-            System.out.println("Introduce el año de nacimiento");
-            año=scanner.nextInt();
-        }catch (InputMismatchException e){
-            System.out.println("No puedes poner otra cosa que no sea un  numero entero");
-            scanner.nextLine();
+            año = Integer.parseInt(JOptionPane.showInputDialog("Introduce el año de nacimiento"));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
             return;
         }//Fin try-catch
         try {
-            System.out.println("Introduce el mes de nacimiento");
-            mes =scanner.nextInt();
-        }catch (InputMismatchException e){
-            System.out.println("No puedes poner otra cosa que no sea un  numero entero");
-            scanner.nextLine();
+            mes = Integer.parseInt(JOptionPane.showInputDialog("Introduce el mes de nacimiento"));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
             return;
         }//Fin try-catch
         try {
-            System.out.println("Introduce el día de nacimiento");
-            dia = scanner.nextInt();
-        }catch (InputMismatchException e){
-            System.out.println("No puede poner otra cosa que no sea un numero entero");
-            scanner.nextLine();
+            dia = Integer.parseInt(JOptionPane.showInputDialog("Introduce el día de nacimiento"));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
             return;
         }//Fin try-catch
         try {
-             fechaDeNacimiento = LocalDate.of(año, mes, dia);
-        }catch (DateTimeException e){
-            System.out.println("No existe esta fecha");
+            fechaDeNacimiento = LocalDate.of(año, mes, dia);
+        } catch (DateTimeException e) {
+            JOptionPane.showMessageDialog(null, "No existe esta fecha");
             return;
         }//Fin try-catch
         try {
-            System.out.println("Introduce el año de ingreso a la empresa");
-            añoI=scanner.nextInt();
-        }catch (InputMismatchException e){
-            System.out.println("No puedes poner otra cosa que no sea un  numero entero");
-            scanner.nextLine();
+            añoI = Integer.parseInt(JOptionPane.showInputDialog("Introduce el año de ingreso a la empresa"));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
             return;
         }//Fin try-catch
         try {
-            System.out.println("Introduce el mes de ingreso a la empresa");
-            mesI =scanner.nextInt();
-        }catch (InputMismatchException e){
-            System.out.println("No puedes poner otra cosa que no sea un  numero entero");
-            scanner.nextLine();
+            mesI = Integer.parseInt(JOptionPane.showInputDialog("Introduce el mes de ingreso a la empresa"));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
             return;
         }//Fin try-catch
         try {
-            System.out.println("Introduce el día de ingreso a la empresa");
-            diaI = scanner.nextInt();
-        }catch (InputMismatchException e){
-            System.out.println("No puede poner otra cosa que no sea un numero entero");
-            scanner.nextLine();
+            diaI = Integer.parseInt(JOptionPane.showInputDialog("Introduce el día de ingreso a la empresa"));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
             return;
         }//Fin try-catch
         try {
             fechaDeIngreso = LocalDate.of(añoI, mesI, diaI);
-        }catch (DateTimeException e){
-            System.out.println("No existe esta fecha");
+        } catch (DateTimeException e) {
+            JOptionPane.showMessageDialog(null, "No existe esta fecha");
             return;
         }//Fin try-catch
         try {
-            System.out.println("Indica tu puesto de trabajo");
-            String puestoTrabajo=scanner.nextLine();
-            scanner.nextLine();
-        }catch (InputMismatchException e){
-            System.out.println("Error no puedes poner otra cosa que no sea un nombre ");
-            scanner.nextLine();
+            puesto = JOptionPane.showInputDialog("Indica tu puesto de trabajo");
+        } catch (InputMismatchException e) {
+            JOptionPane.showMessageDialog(null, "Error: no puedes poner otra cosa que no sea un nombre");
             return;
         }//Fin try-catch
         try {
-            System.out.println("Introduce tu salario");
-            salario =scanner.nextInt();
-        }catch (InputMismatchException e){
-            System.out.println("No puedes poner otra cosa que no sea un numero");
-            scanner.nextLine();
+            salario = Integer.parseInt(JOptionPane.showInputDialog("Introduce tu salario"));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número");
             return;
         }//Fin try-catch
         Empleado empleadoNuevo = new Empleado(nombre, apellidos, fechaDeNacimiento, fechaDeIngreso, puesto, salario);
         empleados.add(empleadoNuevo);
-    }//Fin de añadirEmpleado
+    } // Fin de añadirEmpleado
 
-    public static void gastoTotal(){
-        int total=0;
-        for(Empleado empleadosTemp : empleados){
-           total+= empleadosTemp.getSalario();
-        }//Fin for
-        System.out.println("El gasto total es: "+total);
-    }//Fin de gastoTotal
+    /**
+     * Metodo que calcula el gasto total de todos los empleados
+     */
+    public static void gastoTotal() {
+        int total = 0;
+        for (Empleado empleadosTemp : empleados) {
+            total += empleadosTemp.getSalario();
+        }//Fin de for
+        JOptionPane.showMessageDialog(null, "El gasto total es: " + total+"€");
+    } // Fin de gastoTotal
+
     /**
      * Metodo que inserta los primeros empleados
      */
-    public static void empleadosBase(){
-        Empleado empleado1 = new Empleado("Juan","Torres",LocalDate.parse("1960-01-01"),LocalDate.parse("1980-05-24"),"Jefe",60000);
-        Empleado empleado2 = new Empleado("Sara","Gonzalez",LocalDate.parse("1980-05-02"),LocalDate.parse("1999-06-03"),"Secretaria",25000);
-        Empleado empleado3 = new Empleado("Elena","Sanchez",LocalDate.parse("2010-11-02"),LocalDate.parse("2010-11-02"),"TecnicoFP",30000);
-        Empleado empleado4 = new Empleado("Pepe","Uriel",LocalDate.parse("1991-10-04"),LocalDate.parse("2015-10-01"),"Administrativo",24000);
-        Empleado empleado5 = new Empleado("Manuel","Parra",LocalDate.parse("2004-10-31"),LocalDate.parse("2026-04-15"),"TecnicoFP",26000);
+    public static void empleadosBase() {
+        Empleado empleado1 = new Empleado("Juan", "Torres", LocalDate.parse("1960-01-01"), LocalDate.parse("1980-05-24"), "Jefe", 60000);
+        Empleado empleado2 = new Empleado("Sara", "Gonzalez", LocalDate.parse("1980-05-02"), LocalDate.parse("1999-06-03"), "Secretaria", 25000);
+        Empleado empleado3 = new Empleado("Elena", "Sanchez", LocalDate.parse("2010-11-02"), LocalDate.parse("2010-11-02"), "TecnicoFP", 30000);
+        Empleado empleado4 = new Empleado("Pepe", "Uriel", LocalDate.parse("1991-10-04"), LocalDate.parse("2015-10-01"), "Administrativo", 24000);
+        Empleado empleado5 = new Empleado("Manuel", "Parra", LocalDate.parse("2004-10-31"), LocalDate.parse("2026-04-15"), "TecnicoFP", 26000);
         empleados.add(empleado1);
         empleados.add(empleado2);
         empleados.add(empleado3);
         empleados.add(empleado4);
         empleados.add(empleado5);
-}//Fin de empleadosBase
+    } // Fin de empleadosBase
 
     /**
      * Metodo que ejecuta el codigo
@@ -335,5 +283,5 @@ public class Main {
     public static void main(String[] args) {
         empleadosBase();
         menu();
-    }//Fin del main
-}//Fin de Main
+    } // Fin de main
+}//Fin del Main

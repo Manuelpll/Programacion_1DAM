@@ -146,7 +146,7 @@ public class Empleado {
         sb.append("\nPuesto: ");
         sb.append(puesto);
         sb.append("\nSalario: ");
-        sb.append(salario);
+        sb.append(salario+"€");
         return sb.toString();
     }
 }
