@@ -6,7 +6,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
+/**
+ * Primera explicacion de la lectura de ficheros
+ */
 public class Main {
+    /**
+     * Metodo que ejecuta el codigo
+     * @param args Los argumentos de la linea de comandos
+     */
     public static void main(String[] args) {
         //Definicion del array list de tipo String
         ArrayList <String> alumnos = new ArrayList<String>();
