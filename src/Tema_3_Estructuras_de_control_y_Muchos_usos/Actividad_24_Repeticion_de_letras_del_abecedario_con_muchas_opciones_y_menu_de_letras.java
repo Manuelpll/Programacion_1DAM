@@ -5,7 +5,7 @@ package Tema_3_Estructuras_de_control_y_Muchos_usos;
 
 import java.util.Scanner;
 
-public class Actividad_24_Repeticion_de_letras_del_abecedadrio_con_muchas_opciones_y_menu_de_letras {
+public class Actividad_24_Repeticion_de_letras_del_abecedario_con_muchas_opciones_y_menu_de_letras {
     public static void serie1 (int n) {
         int i, j;
         for(i=1;i<=n;i++) {
