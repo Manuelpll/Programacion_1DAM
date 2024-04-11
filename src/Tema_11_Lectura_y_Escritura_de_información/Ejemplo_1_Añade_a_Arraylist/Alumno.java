@@ -1,4 +1,4 @@
-package Tema_11_Lectura_y_Escritura_de_información.Ejemplo_1;
+package Tema_11_Lectura_y_Escritura_de_información.Ejemplo_1_Añade_a_Arraylist;
 
 /**
  * Clase Alumno de la primera explicacion

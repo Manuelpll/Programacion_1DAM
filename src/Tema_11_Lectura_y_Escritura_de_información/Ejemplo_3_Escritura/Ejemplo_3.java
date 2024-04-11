@@ -41,13 +41,13 @@ public class Ejemplo_3 {
                 BufferedWriter bw = new BufferedWriter(new FileWriter(".\\src\\Tema_11_Lectura_y_Escritura_de_información\\Ejemplo_3_Escritura\\prueba2.txt"));
                 //Escribimos en el fichero
                 bw.write("Linea 1");
-                System.out.println("Escriba su linea 1");
+                System.out.println("Escriba su linea 1: ");
                 String escritura= sc.nextLine();
                 bw.write(escritura);
                 bw.flush();
                 bw.newLine();
                 bw.write("Linea 2");
-                System.out.println("Escriba su linea 2");
+                System.out.println("Escriba su linea 2: ");
                escritura= sc.nextLine();
                 bw.write(escritura);
                 bw.flush();

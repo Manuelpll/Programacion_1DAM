@@ -1,4 +1,4 @@
-package Tema_11_Lectura_y_Escritura_de_información.Ejemplo_2;
+package Tema_11_Lectura_y_Escritura_de_información.Ejemplo_2_Limitadores;
 
 
 public class Alumnos {

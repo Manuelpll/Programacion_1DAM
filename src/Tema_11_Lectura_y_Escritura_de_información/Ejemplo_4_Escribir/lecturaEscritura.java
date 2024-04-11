@@ -1,12 +1,23 @@
-package Tema_11_Lectura_y_Escritura_de_información.Ejemplo_4_escribir;
+package Tema_11_Lectura_y_Escritura_de_información.Ejemplo_4_Escribir;
 
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * Es un programa que te crea un archivo , te escribe 9 lineas y luego la siguiente linea te pide que escribas información
+ * @author Mparr
+ * @date 11/04/2024
+ */
 public class lecturaEscritura {
+    /**
+     * Metodo que ejecuta el codigo
+     * @param args Los argumentos de la linea de comandos
+     */
     public static void main(String[] args) {
+        BufferedReader br =null;
+        PrintWriter pw = null;
         Scanner sc = new Scanner(System.in);
-        String rutaArchivo = "prueba.txt";
+        String rutaArchivo = ".\\src\\Tema_11_Lectura_y_Escritura_de_información\\Ejemplo_4_Escribir\\prueba.txt";
         File fichero = new File(rutaArchivo);
 
         try {
@@ -16,37 +27,34 @@ public class lecturaEscritura {
                 String respuesta = sc.nextLine();
                 if (respuesta.equalsIgnoreCase("s")) {
                     // Crear un nuevo archivo con 9 líneas
-                    PrintWriter pw = new PrintWriter(fichero);
+                    pw = new PrintWriter(fichero);
                     for (int i = 1; i <= 9; i++) {
                         pw.println("linea " + i);
-                    }
+                    }//Fin for
                     pw.close();
                     System.out.println("Archivo creado con éxito.");
                 } else {
                     System.out.println("Saliendo del programa.");
                     return;
-                }
-            }
+                }//Fin if-else
+            }//Fin if
 
-            // Pedir al usuario que escriba la línea 10
-            System.out.println("Escribe la línea 10:");
-            String linea10 = sc.nextLine();
+            System.out.println("Escribe siguiente linea:");
+            String nuevalinea = sc.nextLine();
 
-            // Añadir la línea 10 al final del archivo
-            PrintWriter pw = new PrintWriter(new FileWriter(fichero, true));
-            pw.println(linea10);
+            pw = new PrintWriter(new FileWriter(fichero, true));
+            pw.println(nuevalinea);
             pw.close();
 
-            // Mostrar el contenido completo del archivo
-            BufferedReader br = new BufferedReader(new FileReader(fichero));
+            br = new BufferedReader(new FileReader(fichero));
             String linea;
             System.out.println("Contenido del archivo:");
             while ((linea = br.readLine()) != null) {
                 System.out.println(linea);
-            }
+            }//Fin while
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-}
+        }//Fin try-catch
+    }//Fin del main
+}//Fin lecturaEscritura

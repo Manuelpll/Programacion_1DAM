@@ -1,4 +1,4 @@
-package Tema_11_Lectura_y_Escritura_de_información.Ejemplo_2;
+package Tema_11_Lectura_y_Escritura_de_información.Ejemplo_2_Limitadores;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,7 +20,7 @@ public class Main {
         //Array de objetos Alumnos
         ArrayList<Alumnos> alumnoDam= new ArrayList<Alumnos>();
         //Instacio el fichero donde se guardan los datos
-        File fichero = new File(".\\src\\Tema_11_Lectura_y_Escritura_de_información\\Ejemplo_2\\alumnos2.txt");
+        File fichero = new File(".\\src\\Tema_11_Lectura_y_Escritura_de_información\\Ejemplo_2_Limitadores\\alumnos2.txt");
         Scanner sc= null;
         try {
             sc=new Scanner(fichero);

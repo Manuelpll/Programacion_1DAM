@@ -1,4 +1,4 @@
-package Tema_11_Lectura_y_Escritura_de_información.Ejemplo_1;
+package Tema_11_Lectura_y_Escritura_de_información.Ejemplo_1_Añade_a_Arraylist;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,7 +18,7 @@ public class Main {
         //Definicion del array list de tipo String
         ArrayList <String> alumnos = new ArrayList<String>();
         //Instanciar el fichero donde se encuentra los datos
-        File fichero = new File(".\\src\\Tema_11_Lectura_y_Escritura_de_información\\Ejemplo_1\\alumnos.txt");
+        File fichero = new File(".\\src\\Tema_11_Lectura_y_Escritura_de_información\\Ejemplo_1_Añade_a_Arraylist\\alumnos.txt");
         Scanner s = null;
 
         try {

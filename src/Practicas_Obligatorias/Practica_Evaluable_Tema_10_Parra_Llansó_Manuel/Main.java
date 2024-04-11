@@ -61,20 +61,28 @@ public class Main {
         try {
             String empleadoQuerido = JOptionPane.showInputDialog("¿Qué empleado quieres buscar?");
             boolean empleadoConseguido = false;
+            List<Empleado> empleadosEncontrados = new ArrayList<>();
+
             for (Empleado empleado : empleados) {
                 if (empleado.getNombre().equals(empleadoQuerido)) {
-                    JOptionPane.showMessageDialog(null, empleado);
+                    empleadosEncontrados.add(empleado);
                     empleadoConseguido = true;
-                    break;
                 }//Fin if
             }//Fin for
-            if (!empleadoConseguido) {
+
+            if (empleadoConseguido) {
+                // Si se encontraron empleados con el nombre buscado, imprimir la lista
+                for (Empleado empleado : empleadosEncontrados) {
+                    JOptionPane.showMessageDialog(null, empleado);
+                }
+            } else {
                 JOptionPane.showMessageDialog(null, "No se encontró ese empleado");
             }//Fin if
         } catch (InputMismatchException e) {
             JOptionPane.showMessageDialog(null, "ERROR: No se puede poner algo que no sea una cadena de caracteres");
         }//Fin try-catch
     } // Fin de buscarEmpleado
+
 
     /**
      * Este metodo elimina un empleado que se desee
