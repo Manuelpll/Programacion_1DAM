@@ -1,0 +1,6 @@
+(Insertarlos a este archivo desde el programa)
+Juan::Torres::01-01-1960::24-5-1980::Jefe::60000
+Sara::Gonzalez::02-05-1980::03-06-1999::Secretaria::25000
+Elena::Sanchez::03-09-1990::02-11-2010::TecnicoFP::30000
+Pepe::Uriel::04-10-1991::01-10-2015::Administrativo::24000
+Manuel::Parra::31-10-2004::15-04-2026::TecnicoFP::26000
