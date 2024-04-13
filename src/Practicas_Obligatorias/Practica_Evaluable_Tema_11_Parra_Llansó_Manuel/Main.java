@@ -1,6 +1,8 @@
 package Practicas_Obligatorias.Practica_Evaluable_Tema_11_Parra_Llansó_Manuel;
 
+
 import javax.swing.*;
+import java.io.*;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.*;
@@ -11,6 +13,8 @@ import java.util.*;
  * @version 1.0
  */
 public class Main {
+    static String rutaempleados=".\\src\\Practicas_Obligatorias\\Practica_Evaluable_Tema_11_Parra_Llansó_Manuel\\empleados.txt";
+    static String rutaempleadosantiguos=".\\src\\Practicas_Obligatorias\\Practica_Evaluable_Tema_11_Parra_Llansó_Manuel\\empleadosAntigos.txt";
     static ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     static int eleccion;
 
@@ -88,13 +92,27 @@ public class Main {
     /**
      * Este metodo elimina un empleado que se desee
      * @throws InputMismatchException Si se pone un input incorrecto
+     * @throws IOException Si falla el BufferedWritter
      */
     public static void eliminarEmpleado() {
         try {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(rutaempleadosantiguos));
             String nombreElim = JOptionPane.showInputDialog("Introduce el nombre del empleado que deseas eliminar");
             boolean empleadoEncontrado = false;
             for (Empleado empleado : empleados) {
                 if (empleado.getNombre().equals(nombreElim)) {
+                    String linea = empleado.getNombre() + "::" +
+                            empleado.getApellidos() + "::" +
+                            empleado.getFechaDeNacimiento() + "::" +
+                            empleado.getFechaDeIngreso() + "::" +
+                            empleado.getPuesto() + "::" +
+                            empleado.getSalario()+"::"+
+                            LocalDate.now();
+                    if (!linea.isEmpty()) {
+                        bw.write(linea);
+                        bw.newLine();
+                    }//Fin if
+                    bw.flush();
                     empleados.remove(empleado);
                     empleadoEncontrado = true;
                     JOptionPane.showMessageDialog(null, nombreElim + " ha sido eliminado");
@@ -106,6 +124,8 @@ public class Main {
             }//Fin if
         } catch (InputMismatchException e) {
             JOptionPane.showMessageDialog(null, "Error: No se puede ingresar algo que no sea una cadena de caracteres");
+        }catch (IOException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }//Fin try-catch
     } // Fin de eliminarEmpleado
 
@@ -270,19 +290,48 @@ public class Main {
     } // Fin de gastoTotal
 
     /**
-     * Metodo que inserta los primeros empleados
+     * Metodo que añade los empleados iniciales que estan
+     * @throws FileNotFoundException Si no se encuentra el archivo de los empleados
+     * @throws  DateTimeException Si  hay una fecha imposible
+     * @throws  Exception Si salta otra excepcion
      */
     public static void empleadosBase() {
-        Empleado empleado1 = new Empleado("Juan", "Torres", LocalDate.parse("1960-01-01"), LocalDate.parse("1980-05-24"), "Jefe", 60000);
-        Empleado empleado2 = new Empleado("Sara", "Gonzalez", LocalDate.parse("1980-05-02"), LocalDate.parse("1999-06-03"), "Secretaria", 25000);
-        Empleado empleado3 = new Empleado("Elena", "Sanchez", LocalDate.parse("2010-11-02"), LocalDate.parse("2010-11-02"), "TecnicoFP", 30000);
-        Empleado empleado4 = new Empleado("Pepe", "Uriel", LocalDate.parse("1991-10-04"), LocalDate.parse("2015-10-01"), "Administrativo", 24000);
-        Empleado empleado5 = new Empleado("Manuel", "Parra", LocalDate.parse("2004-10-31"), LocalDate.parse("2026-04-15"), "TecnicoFP", 26000);
-        empleados.add(empleado1);
-        empleados.add(empleado2);
-        empleados.add(empleado3);
-        empleados.add(empleado4);
-        empleados.add(empleado5);
+        File fichero = new File(rutaempleados);
+        Scanner sc= null;
+        try {
+            sc=new Scanner(fichero);
+            //Voy obteniendo los datos de cada alumno
+            while (sc.hasNextLine()){
+                String linea = sc.nextLine();//Obtiene una fila de un alumno
+                String[] cortarString = linea.split("::");
+                //Objeto clase alumnos con su atributos
+                Empleado empleado= new Empleado();
+              empleado.setNombre(cortarString[1]);
+              empleado.setApellidos(cortarString[0]);
+              empleado.setFechaDeNacimiento(LocalDate.parse(cortarString[2]));
+              empleado.setFechaDeIngreso(LocalDate.parse(cortarString[3]));
+              empleado.setPuesto((cortarString[4]));
+              empleado.setSalario(Integer.parseInt(cortarString[5]));
+                //Añadir el alumnono a la lista
+                empleados.add(empleado);
+            }//Fin while
+        } catch (FileNotFoundException e) {
+          JOptionPane.showMessageDialog(null,e.getMessage());
+        }catch (DateTimeException e) {
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e.getMessage()); ;
+        }finally{
+                try {
+
+                    if (sc !=null){
+                        sc.close();
+                    }//Fin if
+                }catch (Exception e){
+                   JOptionPane.showMessageDialog(null,"Error al cerrar el fichero");
+                    JOptionPane.showMessageDialog(null,e.getMessage());
+                }//Fin try-catch
+        }//Fin try-catch-finally
     } // Fin de empleadosBase
 
     /**
