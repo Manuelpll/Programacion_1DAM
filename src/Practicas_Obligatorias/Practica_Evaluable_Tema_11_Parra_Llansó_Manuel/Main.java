@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class Main {
     static String rutaempleados=".\\src\\Practicas_Obligatorias\\Practica_Evaluable_Tema_11_Parra_Llansó_Manuel\\empleados.txt";
-    static String rutaempleadosantiguos=".\\src\\Practicas_Obligatorias\\Practica_Evaluable_Tema_11_Parra_Llansó_Manuel\\empleadosAntigos.txt";
+    static String rutaempleadosantiguos=".\\src\\Practicas_Obligatorias\\Practica_Evaluable_Tema_11_Parra_Llansó_Manuel\\empleadosAntiguos.txt";
     static ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     static int eleccion;
 
@@ -56,6 +56,7 @@ public class Main {
                 JOptionPane.showMessageDialog(null, "Inserta una de las opciones válidas");
             }//Fin try-catch
         } while (!salir);
+        datosfinales();
     } // Fin de menu
 
     /**
@@ -96,23 +97,17 @@ public class Main {
      */
     public static void eliminarEmpleado() {
         try {
-        BufferedWriter bw = new BufferedWriter(new FileWriter(rutaempleadosantiguos));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(rutaempleadosantiguos));
             String nombreElim = JOptionPane.showInputDialog("Introduce el nombre del empleado que deseas eliminar");
             boolean empleadoEncontrado = false;
             for (Empleado empleado : empleados) {
                 if (empleado.getNombre().equals(nombreElim)) {
-                    String linea = empleado.getNombre() + "::" +
-                            empleado.getApellidos() + "::" +
+                    writer.write(empleado.getApellidos() + "::" +
+                            empleado.getNombre() + "::" +
                             empleado.getFechaDeNacimiento() + "::" +
                             empleado.getFechaDeIngreso() + "::" +
-                            empleado.getPuesto() + "::" +
-                            empleado.getSalario()+"::"+
-                            LocalDate.now();
-                    if (!linea.isEmpty()) {
-                        bw.write(linea);
-                        bw.newLine();
-                    }//Fin if
-                    bw.flush();
+                           empleado.getSalario()+ "::"+LocalDate.now());
+                    writer.newLine();
                     empleados.remove(empleado);
                     empleadoEncontrado = true;
                     JOptionPane.showMessageDialog(null, nombreElim + " ha sido eliminado");
@@ -190,8 +185,8 @@ public class Main {
      * @throws DateTimeException Si se pone una fecha imposible
      */
     public static void añadirEmpleado() {
-        String nombre;
-        String apellidos;
+        String nombre = "";
+        String apellidos = "";
         int año = 0;
         int mes = 0;
         int dia = 0;
@@ -200,83 +195,64 @@ public class Main {
         int diaI = 0;
         String puesto = "";
         int salario = 0;
-        LocalDate fechaDeIngreso;
-        LocalDate fechaDeNacimiento;
-        try {
-            nombre = JOptionPane.showInputDialog("Introduce el nombre del empleado");
-        } catch (InputMismatchException e) {
-            JOptionPane.showMessageDialog(null, "Error: no puedes poner otra cosa que no sea un nombre");
-            return;
-        }//Fin try-catch
-        try {
-            apellidos = JOptionPane.showInputDialog("Introduce los apellidos del empleado");
-        } catch (InputMismatchException e) {
-            JOptionPane.showMessageDialog(null, "Error: no puedes poner otra cosa que no sea un nombre");
-            return;
-        }//Fin try-catch
-        try {
-            año = Integer.parseInt(JOptionPane.showInputDialog("Introduce el año de nacimiento"));
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
-            return;
-        }//Fin try-catch
-        try {
-            mes = Integer.parseInt(JOptionPane.showInputDialog("Introduce el mes de nacimiento"));
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
-            return;
-        }//Fin try-catch
-        try {
-            dia = Integer.parseInt(JOptionPane.showInputDialog("Introduce el día de nacimiento"));
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
-            return;
-        }//Fin try-catch
-        try {
-            fechaDeNacimiento = LocalDate.of(año, mes, dia);
-        } catch (DateTimeException e) {
-            JOptionPane.showMessageDialog(null, "No existe esta fecha");
-            return;
-        }//Fin try-catch
-        try {
-            añoI = Integer.parseInt(JOptionPane.showInputDialog("Introduce el año de ingreso a la empresa"));
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
-            return;
-        }//Fin try-catch
-        try {
-            mesI = Integer.parseInt(JOptionPane.showInputDialog("Introduce el mes de ingreso a la empresa"));
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
-            return;
-        }//Fin try-catch
-        try {
-            diaI = Integer.parseInt(JOptionPane.showInputDialog("Introduce el día de ingreso a la empresa"));
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número entero");
-            return;
-        }//Fin try-catch
-        try {
-            fechaDeIngreso = LocalDate.of(añoI, mesI, diaI);
-        } catch (DateTimeException e) {
-            JOptionPane.showMessageDialog(null, "No existe esta fecha");
-            return;
-        }//Fin try-catch
-        try {
-            puesto = JOptionPane.showInputDialog("Indica tu puesto de trabajo");
-        } catch (InputMismatchException e) {
-            JOptionPane.showMessageDialog(null, "Error: no puedes poner otra cosa que no sea un nombre");
-            return;
-        }//Fin try-catch
-        try {
-            salario = Integer.parseInt(JOptionPane.showInputDialog("Introduce tu salario"));
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "No puedes poner otra cosa que no sea un número");
-            return;
-        }//Fin try-catch
+        LocalDate fechaDeIngreso = null;
+        LocalDate fechaDeNacimiento = null;
+
+        do {
+            try {
+                nombre = JOptionPane.showInputDialog("Introduce el nombre del empleado");
+            } catch (InputMismatchException e) {
+                JOptionPane.showMessageDialog(null, "Error: no puedes poner otra cosa que no sea un nombre");
+                continue; // Vuelve al principio del bucle
+            }
+
+            try {
+                apellidos = JOptionPane.showInputDialog("Introduce los apellidos del empleado");
+            } catch (InputMismatchException e) {
+                JOptionPane.showMessageDialog(null, "Error: no puedes poner otra cosa que no sea un nombre");
+                continue;
+            }
+
+            try {
+                año = Integer.parseInt(JOptionPane.showInputDialog("Introduce el año de nacimiento"));
+                mes = Integer.parseInt(JOptionPane.showInputDialog("Introduce el mes de nacimiento"));
+                dia = Integer.parseInt(JOptionPane.showInputDialog("Introduce el día de nacimiento"));
+                fechaDeNacimiento = LocalDate.of(año, mes, dia);
+            } catch (NumberFormatException | DateTimeException e) {
+                JOptionPane.showMessageDialog(null, "Error: Fecha de nacimiento inválida");
+                continue;
+            }
+
+            try {
+                añoI = Integer.parseInt(JOptionPane.showInputDialog("Introduce el año de ingreso a la empresa"));
+                mesI = Integer.parseInt(JOptionPane.showInputDialog("Introduce el mes de ingreso a la empresa"));
+                diaI = Integer.parseInt(JOptionPane.showInputDialog("Introduce el día de ingreso a la empresa"));
+                fechaDeIngreso = LocalDate.of(añoI, mesI, diaI);
+            } catch (NumberFormatException | DateTimeException e) {
+                JOptionPane.showMessageDialog(null, "Error: Fecha de ingreso inválida");
+                continue;
+            }
+
+            try {
+                puesto = JOptionPane.showInputDialog("Indica tu puesto de trabajo");
+            } catch (InputMismatchException e) {
+                JOptionPane.showMessageDialog(null, "Error: no puedes poner otra cosa que no sea un nombre");
+                continue;
+            }
+
+            try {
+                salario = Integer.parseInt(JOptionPane.showInputDialog("Introduce tu salario"));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Error: Debes introducir un número válido para el salario");
+                continue;
+            }
+
+        } while (salario == 0);
+
         Empleado empleadoNuevo = new Empleado(nombre, apellidos, fechaDeNacimiento, fechaDeIngreso, puesto, salario);
         empleados.add(empleadoNuevo);
-    } // Fin de añadirEmpleado
+    }
+
 
     /**
      * Metodo que calcula el gasto total de todos los empleados
@@ -333,7 +309,21 @@ public class Main {
                 }//Fin try-catch
         }//Fin try-catch-finally
     } // Fin de empleadosBase
-
+public  static  void datosfinales(){
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaempleados))) {
+        for (Empleado empleado : empleados) {
+            writer.write(empleado.getApellidos() + "::" +
+                    empleado.getNombre() + "::" +
+                    empleado.getFechaDeNacimiento() + "::" +
+                    empleado.getFechaDeIngreso() + "::" +
+                    empleado.getPuesto()+"::"+empleado.getSalario());
+            writer.newLine();
+        }//Fin for
+        JOptionPane.showMessageDialog(null, "Datos de empleados escritos en el archivo 'empleados.txt'");
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(null, "Error al escribir en el archivo de empleados: " + e.getMessage());
+    }//Fin try-catch
+}//Fin  de datos finales
     /**
      * Metodo que ejecuta el codigo
      * @param args Los argumentos de la linea de comandos
