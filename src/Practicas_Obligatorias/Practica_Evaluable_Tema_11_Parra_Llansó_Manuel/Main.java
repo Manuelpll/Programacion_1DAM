@@ -13,7 +13,7 @@ import java.util.*;
  * @version 1.0
  */
 public class Main {
-    static String rutaempleados=".\\src\\Practicas_Obligatorias\\Practica_Evaluable_Tema_11_Parra_Llansó_Manuel\\empleados.txt";
+    static String rutaempleados=" .\\src\\Practicas_Obligatorias\\Practica_Evaluable_Tema_11_Parra_Llansó_Manuel\\empleados.txt";
     static String rutaempleadosantiguos=".\\src\\Practicas_Obligatorias\\Practica_Evaluable_Tema_11_Parra_Llansó_Manuel\\empleadosAntiguos.txt";
     static ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     static int eleccion;
@@ -109,9 +109,10 @@ public class Main {
                             empleado.getFechaDeIngreso() + "::" +
                             empleado.getSalario() + "::" + LocalDate.now());
                     writer.newLine();
-                    iterator.remove(); // Elimina el empleado de la lista
+                    iterator.remove();
                     empleadoEncontrado = true;
                     JOptionPane.showMessageDialog(null, nombreElim + " ha sido eliminado");
+                    datosfinales();
                     break;
                 }//Fin if
             }//Fin if
@@ -145,6 +146,7 @@ public class Main {
                     enumeracion = 1;
                     informacionFinal += " ";
                     System.out.println(" ");
+                    datosfinales();
                     break;
                 case 2:
                     empleados.sort(Comparator.comparingInt(Empleado::getSalario));
@@ -157,6 +159,7 @@ public class Main {
                     enumeracion = 1;
                     informacionFinal += " ";
                     System.out.println(" ");
+                    datosfinales();
                     break;
                 case 3:
                     empleados.sort(Comparator.comparing(Empleado::getApellidos));
@@ -169,6 +172,7 @@ public class Main {
                     enumeracion = 1;
                     informacionFinal += " ";
                     System.out.println(" ");
+                    datosfinales();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Error: Opción no válida");
@@ -251,6 +255,7 @@ public class Main {
 
         Empleado empleadoNuevo = new Empleado(nombre, apellidos, fechaDeNacimiento, fechaDeIngreso, puesto, salario);
         empleados.add(empleadoNuevo);
+        datosfinales();
     }//Fin añadirEmpleado
 
 
@@ -299,7 +304,6 @@ public class Main {
             JOptionPane.showMessageDialog(null,e.getMessage()); ;
         }finally{
                 try {
-
                     if (sc !=null){
                         sc.close();
                     }//Fin if
@@ -309,7 +313,12 @@ public class Main {
                 }//Fin try-catch
         }//Fin try-catch-finally
     } // Fin de empleadosBase
-public  static  void datosfinales(){
+
+    /**
+     * Metodo que actualiza los datos del fichero empleados
+     * @throws IOException Si da error al escribir los datos
+     */
+    public  static  void datosfinales(){
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaempleados))) {
         for (Empleado empleado : empleados) {
             writer.write(empleado.getApellidos() + "::" +
@@ -319,11 +328,11 @@ public  static  void datosfinales(){
                     empleado.getPuesto()+"::"+empleado.getSalario());
             writer.newLine();
         }//Fin for
-        JOptionPane.showMessageDialog(null, "Datos de empleados escritos en el archivo 'empleados.txt'");
     } catch (IOException e) {
         JOptionPane.showMessageDialog(null, "Error al escribir en el archivo de empleados: " + e.getMessage());
     }//Fin try-catch
 }//Fin  de datos finales
+
     /**
      * Metodo que ejecuta el codigo
      * @param args Los argumentos de la linea de comandos
