@@ -108,8 +108,7 @@ public class Main {
                             empleado.getFechaDeNacimiento() + "::" +
                             empleado.getFechaDeIngreso() + "::" +
                             empleado.getSalario() + "::" + LocalDate.now());
-                    writer.newLine();
-                    iterator.remove();
+                    writer.newLine();iterator.remove();
                     empleadoEncontrado = true;
                     JOptionPane.showMessageDialog(null, nombreElim + " ha sido eliminado");
                     datosfinales();
