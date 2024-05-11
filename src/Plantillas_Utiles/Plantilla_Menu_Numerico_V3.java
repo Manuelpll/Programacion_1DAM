@@ -1,4 +1,4 @@
-package Plantillas_Para_Actividades;
+package Plantillas_Utiles;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

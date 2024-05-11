@@ -1,4 +1,4 @@
-package Plantillas_Para_Actividades;
+package Plantillas_Utiles;
 
 /**
  * Plantilla para crear objetos en POO
