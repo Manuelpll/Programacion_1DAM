@@ -67,14 +67,14 @@ public class Ejemplo_2_Iterator {
         lista04.add(3);
         Collections.sort(lista04,Integer::compareTo); //Harías lo mismo que con la libreria collections
         System.out.println("Elementos ordenados ascendente lista 4: "+lista04);
-        Comparator<Integer> comaparadorAS = Integer::compareTo;
-        Comparator<Integer> comaparadorIN = Collections.reverseOrder();
-        Collections.sort(lista04,comaparadorIN);
+        Comparator<Integer> comparadorAS = Integer::compareTo;
+        Comparator<Integer> comparadorIN = Collections.reverseOrder();
+        Collections.sort(lista04,comparadorIN);
         System.out.println("Elementos ordenados descendente lista 4: "+lista04);
         ArrayList<Integer> lista4b = new ArrayList<>(List.of(5,7,3,-1,-5));
-        lista4b.sort(comaparadorAS);
+        lista4b.sort(comparadorAS);
         System.out.println(" Lista Ascendente"+lista4b);
-        lista4b.sort(comaparadorIN);
+        lista4b.sort(comparadorIN);
         System.out.println("Lista Descendente"+lista4b);
 
         //Copiar valores de una lista
