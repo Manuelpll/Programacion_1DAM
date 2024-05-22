@@ -7,7 +7,6 @@ import java.util.Scanner;
  */
 public class Plantillas_Para_Lectura_y_Escritura_de_Archivos {
     static String ruta = ".\\src\\Plantillas_Utiles\\ejemplo.txt"; //Cambiar la ruta a la hora de usarlo
-    static Scanner sc = new Scanner(System.in);
     static File fichero = new File(ruta);
     /**
      * Metodo que te crea el archivo
