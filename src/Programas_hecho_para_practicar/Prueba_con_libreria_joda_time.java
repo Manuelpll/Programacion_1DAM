@@ -14,7 +14,7 @@ public class Prueba_con_libreria_joda_time {
      * @param args Los argumentos de la linea de comandos
      */
     public static void main(String[] args) {
-            System.out.println("Fecha del Día de Hoy ----->" +LocalDate.now());
+        System.out.println("Fecha del Día de Hoy ----->" +LocalDate.now());
         System.out.println("Hora Actual-------------------->"+LocalTime.now());
         System.out.println("Fecha y Hora Actual ----------->"+LocalDateTime.now());
         System.out.println("El momento actual ------------->"+Instant.now());
@@ -24,7 +24,7 @@ public class Prueba_con_libreria_joda_time {
         System.out.println("Hora exacta ------------>"+LocalDateTime.of(1990,Month.DECEMBER,24,20,
                 01,15,0017));
         //Provocando un error
-        System.out.println("Periodo Bisiesto de 2019 "+LocalDate.of(2020,Month.FEBRUARY,31));
+        System.out.println("Periodo Bisiesto de 2019 "+LocalDate.of(2020,Month.FEBRUARY,28));
 
         System.out.println("Dia Actual  ...:"+LocalDate.now().getDayOfMonth());
         System.out.println("Mes actual  ...:"+LocalDate.now().getMonth()+" "+LocalDate.now().getMonthValue());
@@ -54,7 +54,7 @@ public class Prueba_con_libreria_joda_time {
 
         //Tiempo trasncurrido entre fechas y horas
 
-        LocalDate fechaNacimiento=LocalDate.of(2004,Month.OCTOBER,31);
+        LocalDate fechaNacimiento=LocalDate.of(2004,Month.OCTOBER,28);
 
         System.out.println("La edad que tienes en Años es de "+
                 ChronoUnit.YEARS.between(fechaNacimiento,LocalDate.now()));
@@ -68,12 +68,16 @@ public class Prueba_con_libreria_joda_time {
         System.out.println("Faltan "+meses+" Meses "+dias+" días hasta final de año");
 
         //Parseado de fechas
-
         LocalDate fechaDeHoy = LocalDate.parse("2024-09-01");
-        LocalDate sietedeOtubre =LocalDate.parse("07/10/2024",
-                DateTimeFormatter.ofPattern("d/M/yyyy"));
-        System.out.println("Fecha de Hoy *****>"+fechaDeHoy);
-        System.out.println("Otra fecha *******>"+sietedeOtubre);
 
+        // Formatear correctamente la fecha con el patrón adecuado
+        DateTimeFormatter formatterEntrada = DateTimeFormatter.ofPattern("d/M/yyyy");
+        LocalDate sietedeOctubre = LocalDate.parse("07/10/2024", formatterEntrada);
+
+        // Crear un formateador para mostrar la fecha en el formato deseado
+        DateTimeFormatter formatterSalida = DateTimeFormatter.ofPattern("d/M/yyyy");
+
+        System.out.println("Fecha de Hoy *****> " + fechaDeHoy.format(formatterSalida));
+        System.out.println("Otra fecha *******> " + sietedeOctubre.format(formatterSalida));
     }
 }
